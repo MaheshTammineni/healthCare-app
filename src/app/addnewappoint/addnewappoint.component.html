@@ -1,0 +1,618 @@
+ 
+<mat-toolbar> 
+        <button mat-icon-button *ngIf="sidenav.mode === 'side'" (click)="sidenav.toggle()"> 
+            <mat-icon *ngIf="!sidenav.opened"> 
+                menu 
+            </mat-icon> 
+            <mat-icon *ngIf="sidenav.opened"> 
+                close 
+            </mat-icon> 
+        </button> 
+        <span class="dash"> <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/navbar-logo-img.png" class="navbar-image" alt="" />MedCare</span> 
+      </mat-toolbar> 
+      <mat-sidenav-container> 
+        <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8"> 
+            <img class="avatar mat-elevation-z8" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/user-profile-img.png"> 
+            <h4 class="name"> <tbody> 
+                <tr *ngFor="let row of userData"> 
+                  <td >{{row.name}}</td> 
+                </tr> 
+              </tbody></h4> 
+       
+            <mat-divider></mat-divider> 
+      <div> 
+            <button mat-button class="menu-button"> 
+                <mat-icon>dashboard</mat-icon> 
+                <span [routerLink]="['/dashboardmaterial']">Dashboard</span> 
+            </button> 
+          </div> 
+            <button mat-button class="menu-button"> 
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" fill="currentColor" class="bi bi-bar-chart fav" viewBox="0 0 16 16"> 
+                <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" /> 
+            </svg> </mat-icon> 
+              <span [routerLink]="['/growthmain']">Growth</span> 
+          </button> 
+       
+            
+            <button mat-button class="menu-button"> 
+                <mat-icon> 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-pencil-square fav" viewBox="0 0 16 16"> 
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> 
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> 
+                </svg> 
+                </mat-icon> 
+                <span [routerLink]="['/appointmentmat']" >Appointments</span> 
+            </button> 
+            <button mat-button class="menu-button"> 
+                <mat-icon> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-info-circle-fill fav" viewBox="0 0 16 16"> 
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/> 
+                      </svg> 
+                    </mat-icon> 
+                    <span [routerLink]="['/educationmat']">About Us</span> 
+            </button> 
+       
+            <mat-divider></mat-divider> 
+       
+            <button mat-button class="menu-button"> 
+              <mat-icon>logout</mat-icon> 
+                <span [routerLink]="['/loginnew']">Logout</span> 
+            </button> <br/> <br/> <br/> <br/> 
+        <span style="color:black">MedCare Dashboard</span><br> 
+        <span style="color:black">2021 All Rights Reserved</span> 
+        </mat-sidenav> 
+     
+        <mat-sidenav-content> 
+             
+          
+     
+            <div class="top-section"> 
+            <h1 style="color:blueviolet;padding-top: 35px; font-size: 50px; text-align: center;">Book an Appointment</h1> 
+            </div> 
+         
+           <div class="bottom-section "> 
+              <mat-stepper [linear]="isLinear" #stepper> 
+                <mat-step [stepControl]="firstFormGroup"> 
+                  <form [formGroup]="firstFormGroup"> 
+                    <ng-template matStepLabel>Select Location</ng-template> 
+            
+                    <div class="form-group row"> 
+                        <div class="d-flex flex-row justify-content-center"> 
+                            <div class="location-card-item"> 
+                                <img src="../../assets/chennai.png" class="location-card-image" /> 
+                                <p class="location-card-price"></p> 
+                                <input  type="radio" checked="checked" value="Chennai" formControlName="location"><label >Chennai</label> 
+                            </div> 
+                            <div class="location-card-item"> 
+                                <img src="../../assets/hyderabad.png" class="location-card-image" /> 
+                                <p class="location-card-price"></p> 
+                                <input type="radio" value="Hyderabad" formControlName="location"><label >Hyderabad</label> 
+                            </div> 
+                            <div class="location-card-item"> 
+                                <img src="../../assets/vijayawada.png" class="location-card-image" /> 
+                                <p class="location-card-price"></p> 
+                                <input type="radio" value="Vijayawada" formControlName="location" ><label >Vijayawada</label> 
+                            </div> 
+                            <div class="location-card-item"> 
+                                <img src="../../assets/mumbai.png" class="location-card-image" /> 
+                                <p class="location-card-price"></p> 
+                                <input type="radio" value="Mumbai" formControlName="location"><label >Mumbai</label> 
+                            </div> 
+                            <div class="location-card-item">  
+                                <img src="../../assets/bengaluru.png" class="location-card-image" /> 
+                                <p class="location-card-price"></p> 
+                                <input type="radio" value="Bengaluru" formControlName="location"><label >Bengaluru</label> 
+                            </div> 
+                        </div> 
+                    </div> 
+                  
+                   
+                    <div> 
+                        <div class="d-flex flex-row justify-content-center"> 
+                      <button mat-button matStepperNext> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="currentColor" class="bi bi-arrow-right" style="color:blue;" viewBox="0 0 16 16"> 
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/> 
+                          </svg> 
+                      </button> </div> 
+                    </div> 
+                  </form> 
+                </mat-step> 
+                <mat-step [stepControl]="thirdFormGroup" label="Choose Specialist doctor"> 
+                    <form [formGroup]="thirdFormGroup"> 
+     
+      <h1>Choose Doctor by Selecting department</h1> 
+      <div class="container"> 
+          <div class="row"> 
+              <div class="col-4"> 
+                   
+       
+                    <div class="department-card-item" style="text-align: start;"> 
+                        <img src="../../assets/pediatrics.png" class="image7" /> 
+                        <button class="btn btn-primary" style="background-Color:burlywood;color: white; padding-left: 20px; padding-right: 20px;"  (click)="changeTabTo('Pediatrics')"  >Pediatrics</button>        
+                    </div> 
+                        <div  class="department-card-item" style="text-align: start;"> 
+                            <img src="../../assets/heart.png" class="image7" /> 
+                        <button class="btn btn-secondary" style="background-Color:#93c5fd; color: white; padding-left: 20px; padding-right: 20px;"  (click)="changeTabTo('Cardiologist')" >Cardiologist</button> 
+                        </div> 
+                        <div  class="department-card-item"style="text-align: start;"> 
+                            <img src="../../assets/kidney.png" class="image7" /> 
+                        <button class="btn btn-secondary" style="background-Color:#fcc200; color: white; padding-left: 20px; padding-right: 20px;"  (click)="changeTabTo('Nephrologist')" >Nephrologist</button> 
+                        </div> 
+                        <div  class="department-card-item" style="text-align: start;"> 
+                            <img src="../../assets/orthopedics.png" class="image7" /> 
+                        <button class="btn btn-secondary" style="background-Color:#ff4f64; color: white; padding-left: 20px; padding-right: 20px;"  (click)="changeTabTo('orthopedic')" >orthopedic</button> 
+                        </div> 
+                    </div> 
+                <div class="col-8"> 
+                    <div class="table"  *ngIf= "id === 'Pediatrics' "> 
+     
+                        <div class="col-12"> 
+                            <h1 style="Color:burlywood;">Available Doctors Under Pediatrics</h1>   
+                            <div class="wcu-card1 p-2 "> 
+                              <div class="container"> 
+                                <div class="row"> 
+                                  <div class="col-12 col-md-6 "> 
+                                    <div class="d-flex flex-row"> 
+                                      <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+                                      <div class="ml-3"> 
+                                        <h1 class="title">Dr.S.R. Krishna Prasad</h1> 
+                                        <ul class="vr-footer-section-list"> 
+                                          <li > 
+                                              <span class="sub-title">Pediatrics</span> 
+                                          </li> 
+                                          <li> 
+                                              <small>M.B.B.S, MRCP(U.K)</small> 
+                                          </li> 
+                                          <li > 
+                                            <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                                              <span class="vr-footer-section-text">14 Years Experience</span> 
+                                          </li> 
+                                          <li> 
+                                            <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                                              <span class="vr-footer-section-text">4 Recommendations</span> 
+                                          </li> 
+                                      </ul> 
+                                        
+                                      </div> 
+                                    </div> 
+                                  </div> 
+                                  <div class="col-10 col-md-5"> 
+                                    <div class="d-flex flex-row justify-content-end"> 
+                             <button class="custom"  style="font-weight: 800;"> <input  type="radio" style="margin-top: 8px;margin-right: 3px;" value="Dr.S.R. Krishna Prasad(Pediatrics)" formControlName="doctor">Book Appointment</button> 
+                                    </div> 
+                                   </div> 
+                             
+                                    </div> 
+                                  </div> 
+                            </div> 
+                          <br> 
+                            <div class="wcu-card1 p-3 "> 
+                              <div class="container"> 
+                                <div class="row"> 
+                                  <div class="col-12 col-md-6 "> 
+                                    <div class="d-flex flex-row"> 
+                                      <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+                                      <div class="ml-3"> 
+                                        <h1 class="title">Dr.A.V.Arvind Kumar</h1> 
+                                        <ul class="vr-footer-section-list"> 
+                                          <li > 
+                                              <span class="sub-title">Pediatrics</span> 
+                                          </li> 
+                                          <li> 
+                                              <small>M.B.B.S, MD</small> 
+                                          </li> 
+                                          <li > 
+                                            <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                                              <span class="vr-footer-section-text">10 Years Experience</span> 
+                                          </li> 
+                                          <li> 
+                                            <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                                              <span class="vr-footer-section-text">6 Recommendations</span> 
+                                          </li> 
+                                      </ul> 
+                                        
+                                      </div> 
+                                    </div> 
+                                  </div> 
+                                  <div class="col-10 col-md-5"> 
+                                    <div class="d-flex flex-row justify-content-end"> 
+                             <button class="custom"  style="font-weight: 800;"> <input  type="radio" style="margin-top: 8px;margin-right: 3px;" value="Dr.A.V.Arvind Kumar(Pediatrics)" formControlName="doctor">Book Appointment</button> 
+                                    </div> 
+                                   </div> 
+                             
+                                    </div> 
+                                  </div> 
+                            </div> 
+                            <br> 
+                            
+                           
+                          </div> 
+                    </div> 
+     
+                        <div class="table "  *ngIf= "id === 'Cardiologist' " > 
+                            <div class="col-12"> 
+                                <h1  style="Color:#93c5fd;">Available Doctors Under Cardiologist</h1> 
+                                <div class="wcu-card2 p-2 "> 
+                                  <div class="container"> 
+                                    <div class="row"> 
+                                      <div class="col-12 col-md-6 "> 
+                                        <div class="d-flex flex-row"> 
+                                          <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+                                          <div class="ml-3"> 
+                                            <h1 class="title">Dr.S Sajid Shaik</h1> 
+                                            <ul class="vr-footer-section-list"> 
+                                              <li > 
+                                                  <span class="sub-title">Cardiologist</span> 
+                                              </li> 
+                                              <li> 
+                                                  <small>M.B.B.S, MRCP(U.K)</small> 
+                                              </li> 
+                                              <li > 
+                                                <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                                                  <span class="vr-footer-section-text">14 Years Experience</span> 
+                                              </li> 
+                                              <li> 
+                                                <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                                                  <span class="vr-footer-section-text">4 Recommendations</span> 
+                                              </li> 
+                                          </ul> 
+                                            
+                                          </div> 
+                                        </div> 
+                                      </div> 
+                                      <div class="col-10 col-md-5"> 
+                                        <div class="d-flex flex-row justify-content-end"> 
+                                 <button class="custom"  style="font-weight: 800;"> <input  type="radio" style="margin-top: 8px;margin-right: 3px;" value="Dr.S Sajid Shaik(Cardiologist)" formControlName="doctor">Book Appointment</button> 
+                                        </div> 
+                                       </div> 
+                                 
+                                        </div> 
+                                      </div> 
+                                </div> 
+                               
+                              <br> 
+                                <div class="wcu-card2 p-3 "> 
+                                  <div class="container"> 
+                                    <div class="row"> 
+                                      <div class="col-12 col-md-6 "> 
+                                        <div class="d-flex flex-row"> 
+                                          <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+                                          <div class="ml-3"> 
+                                            <h1 class="title">Dr.A.V.Manoj Kumar</h1> 
+                                            <ul class="vr-footer-section-list"> 
+                                              <li > 
+                                                  <span class="sub-title">Cardiologist</span> 
+                                              </li> 
+                                              <li> 
+                                                  <small>M.B.B.S, MD</small> 
+                                              </li> 
+                                              <li > 
+                                                <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                                                  <span class="vr-footer-section-text">10 Years Experience</span> 
+                                              </li> 
+                                              <li> 
+                                                <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                                                  <span class="vr-footer-section-text">6 Recommendations</span> 
+                                              </li> 
+                                          </ul> 
+                                            
+                                          </div> 
+                                        </div> 
+                                      </div> 
+                                      <div class="col-10 col-md-5"> 
+                                        <div class="d-flex flex-row justify-content-end"> 
+                                 <button class="custom"  style="font-weight: 800;"> <input  type="radio" style="margin-top: 8px;margin-right: 3px;" value="Dr.A.V.Manoj Kumar(Cardiologist)" formControlName="doctor">Book Appointment</button> 
+                                        </div> 
+                                       </div> 
+                                 
+                                        </div> 
+                                      </div> 
+                                </div> 
+                                <br> 
+                                <div class="wcu-card2 p-3 "> 
+                                    <div class="container"> 
+                                      <div class="row"> 
+                                        <div class="col-12 col-md-6 "> 
+                                          <div class="d-flex flex-row"> 
+                                            <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+                                            <div class="ml-3"> 
+                                              <h1 class="title">Dr.H.Sukumar reddy</h1> 
+                                              <ul class="vr-footer-section-list"> 
+                                                <li > 
+                                                    <span class="sub-title">Cardiologist</span> 
+                                                </li> 
+                                                <li> 
+                                                    <small>M.B.B.S, MD</small> 
+                                                </li> 
+                                                <li > 
+                                                  <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                                                    <span class="vr-footer-section-text">10 Years Experience</span> 
+                                                </li> 
+                                                <li> 
+                                                  <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                                                    <span class="vr-footer-section-text">6 Recommendations</span> 
+                                                </li> 
+                                            </ul> 
+                                              
+                                            </div> 
+                                          </div> 
+                                        </div> 
+                                        <div class="col-10 col-md-5"> 
+                                          <div class="d-flex flex-row justify-content-end"> 
+                                   <button class="custom"  style="font-weight: 800;"> <input  type="radio" style="margin-top: 8px;margin-right: 3px;" value="Dr.H.Sukumar reddy(Cardiologist)" formControlName="doctor">Book Appointment</button> 
+                                          </div> 
+                                         </div> 
+                                   
+                                          </div> 
+                                        </div> 
+                                  </div> 
+                               
+                              </div> 
+                        </div> 
+                        <div class="table "  *ngIf= "id === 'Nephrologist' " > 
+                            <div class="col-12"> 
+                                <h1  style="Color:#fcc200;">Available Doctors Under Nephrologist</h1> 
+                                <div class="wcu-card3 p-2 "> 
+                                  <div class="container"> 
+                                    <div class="row"> 
+                                      <div class="col-12 col-md-6 "> 
+                                        <div class="d-flex flex-row"> 
+                                          <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+                                          <div class="ml-3"> 
+                                            <h1 class="title">Dr.R.Sanjay Reddy</h1> 
+                                            <ul class="vr-footer-section-list"> 
+                                              <li > 
+                                                  <span class="sub-title">Nephrologist</span> 
+                                              </li> 
+                                              <li> 
+                                                  <small>M.B.B.S, MRCP(U.K)</small> 
+                                              </li> 
+                                              <li > 
+                                                <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                                                  <span class="vr-footer-section-text">12 Years Experience</span> 
+                                              </li> 
+                                              <li> 
+                                                <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                                                  <span class="vr-footer-section-text">4 Recommendations</span> 
+                                              </li> 
+                                          </ul> 
+                                            
+                                          </div> 
+                                        </div> 
+                                      </div> 
+                                      <div class="col-10 col-md-5"> 
+                                        <div class="d-flex flex-row justify-content-end"> 
+                                 <button class="custom"  style="font-weight: 800;"> <input  type="radio" style="margin-top: 8px;margin-right: 3px;" value="Dr.R.Sanjay Reddy(Nephrologist)" formControlName="doctor">Book Appointment</button> 
+                                        </div> 
+                                       </div> 
+                                 
+                                        </div> 
+                                      </div> 
+                                </div> 
+                               
+                              <br> 
+                                <div class="wcu-card3 p-3 "> 
+                                  <div class="container"> 
+                                    <div class="row"> 
+                                      <div class="col-12 col-md-6 "> 
+                                        <div class="d-flex flex-row"> 
+                                          <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+                                          <div class="ml-3"> 
+                                            <h1 class="title">Dr.A.Kiran Kumar</h1> 
+                                            <ul class="vr-footer-section-list"> 
+                                              <li > 
+                                                  <span class="sub-title">Nephrologist</span> 
+                                              </li> 
+                                              <li> 
+                                                  <small>M.B.B.S, MD</small> 
+                                              </li> 
+                                              <li > 
+                                                <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                                                  <span class="vr-footer-section-text">16 Years Experience</span> 
+                                              </li> 
+                                              <li> 
+                                                <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                                                  <span class="vr-footer-section-text">6 Recommendations</span> 
+                                              </li> 
+                                          </ul> 
+                                            
+                                          </div> 
+                                        </div> 
+                                      </div> 
+                                      <div class="col-10 col-md-5"> 
+                                        <div class="d-flex flex-row justify-content-end"> 
+                                 <button class="custom"  style="font-weight: 800;"> <input  type="radio" style="margin-top: 8px;margin-right: 3px;" value="Dr.A.Kiran Kumar(Nephrologist)" formControlName="doctor">Book Appointment</button> 
+                                        </div> 
+                                       </div> 
+                                 
+                                        </div> 
+                                      </div> 
+                                </div> 
+                                <br> 
+                                
+                               
+                              </div> 
+                        </div> 
+                            <div class="table "  *ngIf= "id === 'orthopedic' " > 
+                                <div class="col-12"> 
+                                    <h1  style="Color: #ff4f64;">Available Doctors Under Orthopedic</h1> 
+                                    <div class="wcu-card4 p-2 "> 
+                                      <div class="container"> 
+                                        <div class="row"> 
+                                          <div class="col-12 col-md-6 "> 
+                                            <div class="d-flex flex-row"> 
+                                              <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+                                              <div class="ml-3"> 
+                                                <h1 class="title">Dr.S.R. Krishna Prasad</h1> 
+                                                <ul class="vr-footer-section-list"> 
+                                                  <li > 
+                                                      <span class="sub-title">Orthopedic</span> 
+                                                  </li> 
+                                                  <li> 
+                                                      <small>M.B.B.S, MRCP(U.K)</small> 
+                                                  </li> 
+                                                  <li > 
+                                                    <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                                                      <span class="vr-footer-section-text">14 Years Experience</span> 
+                                                  </li> 
+                                                  <li> 
+                                                    <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                                                      <span class="vr-footer-section-text">4 Recommendations</span> 
+                                                  </li> 
+                                              </ul> 
+                                                
+                                              </div> 
+                                            </div> 
+                                          </div> 
+                                          <div class="col-10 col-md-5"> 
+                                            <div class="d-flex flex-row justify-content-end"> 
+                                     <button class="custom"  style="font-weight: 800;"> <input  type="radio" style="margin-top: 8px;margin-right: 3px;" value="Dr.S.R. Krishna Prasad(Orthopedic)" formControlName="doctor">Book Appointment</button> 
+                                            </div> 
+                                           </div> 
+                                     
+                                            </div> 
+                                          </div> 
+                                    </div> 
+                                   
+                                  <br>           
+                                  </div> 
+                            </div> 
+                    </div> 
+                </div> 
+            </div> 
+                </form> 
+                    <div class="d-flex flex-row justify-content-center"> 
+                      <button mat-button matStepperPrevious> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="currentColor" class="bi bi-arrow-left" style="color:blue;" viewBox="0 0 16 16"> 
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/> 
+                          </svg> 
+                      </button> 
+                      <button mat-button matStepperNext> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="currentColor" class="bi bi-arrow-right" style="color:blue;" viewBox="0 0 16 16"> 
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/> 
+                          </svg> 
+                      </button> 
+                    </div> 
+              
+                </mat-step> 
+             
+                  <mat-step [stepControl]="fourFormGroup" label="select Date&Time-slot"> 
+                    <div class="d-flex flex-row justify-content-center"> 
+                        <mat-card class="demo-inline-calendar-card"> 
+                            <mat-calendar  style="color: blue;" (selectedChange)="selected = $event" ></mat-calendar> 
+                          </mat-card>    
+                        </div> 
+                        <div class="d-flex flex-row justify-content-center"> 
+                          <p><span style="color: blue;">Selected date: </span> {{selected | date}}</p> </div> 
+                   
+                <div class="d-flex flex-row justify-content-center"> 
+                        <mat-chip-list aria-label="selection"> 
+                        <div class="d-flex flex-column justify-content-center"> 
+                            <mat-chip color="primary" (click)="timeslot('9:30PM-11:00PM')" selected>9:30PM-11:00PM</mat-chip> 
+                            <mat-chip color="primary" (click)="timeslot('11:00PM-12:30PM')" selected>11:00PM-12:30PM</mat-chip> 
+                        </div><br> 
+     
+                        <div class="d-flex flex-column justify-content-center"> 
+                            <mat-chip color="primary" (click)="timeslot('1:30PM-3:00PM')"  disabled>1:30PM-3:00PM</mat-chip> 
+                            <mat-chip color="primary" (click)="timeslot('3:00PM-4:30PM')"  selected>3:00PM-4:30PM</mat-chip> 
+                        </div> 
+                         
+                        <div class="d-flex flex-column justify-content-center"> 
+                            <mat-chip color="primary" (click)="timeslot('4:30PM-6:00PM')"  selected>4:30PM-6:00PM</mat-chip> 
+                        <mat-chip color="primary" (click)="timeslot('6:00PM-7:30PM')"   disabled>6:00PM-7:30PM</mat-chip> 
+                            
+                        </div> 
+                        </mat-chip-list> 
+                </div> 
+                        
+                      <div> 
+                        <div class="d-flex flex-row justify-content-center"> 
+                        <button mat-button matStepperPrevious> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="currentColor" class="bi bi-arrow-left" style="color:blue;" viewBox="0 0 16 16"> 
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/> 
+                              </svg> 
+                        </button> 
+                        <button mat-button matStepperNext> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="currentColor" class="bi bi-arrow-right" style="color:blue;" viewBox="0 0 16 16"> 
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/> 
+                              </svg> 
+                        </button> </div> 
+                      </div>           
+                  </mat-step> 
+                   
+                  <mat-step [stepControl]="sixFormGroup" label="Payment Mode"> 
+                    <form [formGroup]="sixFormGroup"> 
+                  
+                        <div class="d-flex flex-row justify-content-center"> 
+                           
+                            <h1 >Price For Booking Appointment<span style="color: red;">----></span></h1> 
+                            <h1 style="color: red; font-weight:700 ;padding-left: 50px;">500/-</h1> 
+     
+                        </div> 
+                        <div class="d-flex flex-row justify-content-center"> 
+     
+                        <mat-label style="font-weight: 800;font-size: 20px;">Select a Payment Method</mat-label> </div> 
+     
+                        <div class="d-flex justify-content-center"> 
+     
+                        <mat-form-field color="primary" appearance="fill"> 
+                            <mat-select formControlName="payment"> 
+                              <mat-option *ngFor="let Payment of payments" [value]="Payment.value"> 
+                                {{Payment.viewValue}} 
+                              </mat-option> 
+                            </mat-select> 
+                          </mat-form-field> </div> 
+                    <div> 
+                        <div class="d-flex flex-row justify-content-center"> 
+                        <button mat-button matStepperPrevious> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="currentColor" class="bi bi-arrow-left" style="color:blue;" viewBox="0 0 16 16"> 
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/> 
+                              </svg> 
+                        </button> 
+                        <button style="background-color: orange;" mat-raised-button (click)="openPopup()">Confirm</button> 
+                        </div> 
+     
+                      </div> 
+                    </form> 
+                  </mat-step> 
+           
+              </mat-stepper> 
+               
+            </div>   
+             
+            <div class="modal" tabindex="-1" id="example" role="dialog"  [ngStyle]="{'display':displayStyle}"> 
+     
+                <div class="modal-dialog modal-dialog-centered" role="document"> 
+           
+                  <div class="modal-content" style="width:800px"> 
+           
+                    <div class="modal-header"> 
+           
+                      <h1 style="color: orange;">Confirm Appointment Details</h1> 
+           
+                    </div> 
+           
+                    <div class="modal-body"> 
+                        <tbody> 
+                        <tr> 
+                        <span style="font-size:15px;">Location <td style="color: violet;padding-left: 150px;">{{this.firstFormGroup.value.location}}</td></span><br> 
+                        <span style="font-size:15px;">Doctor <td style="color: violet;padding-left: 163px;">{{this.thirdFormGroup.value.doctor}}</td></span><br> 
+                        <span style="font-size:15px;">Date <td style="color: violet;padding-left: 178px;">{{this.selected.toLocaleString().slice(0,15)}}</td></span><br> 
+                        <span style="font-size:15px;">Payment-Mode <td style="color: violet;padding-left: 108px;">{{this.sixFormGroup.value.payment}}</td></span> 
+                        </tr> 
+                        </tbody> 
+                    </div> 
+      
+                        <div class="modal-footer"> 
+                            <button type="button" id="cancel" class="btn btn-secondary"  (click)="closePopup()">Cancel</button> 
+                           <button type="button" *ngIf="showAdd" (click)="postAppointDetails()" class="btn btn-primary">Confirm Appointment</button> 
+                          </div> 
+             
+                      </div> 
+             
+                    </div> 
+             
+                </div>  
+        </mat-sidenav-content> 
+    </mat-sidenav-container> 
+    

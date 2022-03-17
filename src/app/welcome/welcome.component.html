@@ -1,0 +1,20 @@
+<body> 
+        <div class="row maa col-12"> 
+            <div class="container"> 
+                <div class="d-flex flex-column "> 
+                    <h1 class="head mt-8">Welcome</h1> 
+                    <div class="containername"> 
+                        
+                            <tr *ngFor="let row of userData"> 
+                                <td >{{row.name}}</td> 
+                              </tr> 
+                      
+                        <!--<span type="text" class="name" id="check"></span>    <span type="text" class="name1" id="check1"></span> --> 
+                    </div> 
+                    <p class="para">Please wait while we gather your data</p> 
+                    <span id="spinner" class ="spinner-border text-primary spin" (click)="startTime()" ></span> 
+                </div> 
+            </div> 
+        </div> 
+    </body> 
+    

@@ -1,0 +1,375 @@
+<mat-toolbar > 
+        <button mat-icon-button *ngIf="sidenav.mode === 'side'" (click)="sidenav.toggle()"> 
+            <mat-icon *ngIf="!sidenav.opened"> 
+                menu 
+            </mat-icon> 
+            <mat-icon *ngIf="sidenav.opened"> 
+                close 
+            </mat-icon> 
+        </button> 
+        <span class="dash"> <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/navbar-logo-img.png" class="navbar-image" alt="" />MedCare</span> 
+      </mat-toolbar> 
+      <mat-sidenav-container> 
+        <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8"> 
+       
+            <img class="avatar mat-elevation-z8" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/user-profile-img.png"> 
+       
+            <div class="name"> 
+                <tbody> 
+                  <tr *ngFor="let row of userData"> 
+                    <td >{{row.name}}</td> 
+                  </tr> 
+                 
+                </tbody> 
+                </div> 
+       
+            <mat-divider></mat-divider> 
+      <div> 
+            <button mat-button class="menu-button"> 
+                <mat-icon>dashboard</mat-icon> 
+                <span [routerLink]="['/dashboardmaterial']">Dashboard</span> 
+            </button> 
+          </div> 
+            <button mat-button class="menu-button"> 
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" fill="currentColor" class="bi bi-bar-chart fav" viewBox="0 0 16 16"> 
+                <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" /> 
+            </svg> </mat-icon> 
+              <span [routerLink]="['/growthmain']">Growth</span> 
+          </button> 
+       
+            <button mat-button class="menu-button"> 
+                <mat-icon> 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" fill="currentColor" class="bi bi-calendar3 fav" viewBox="0 0 16 16"> 
+                    <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" /> 
+                    <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" /> 
+                </svg> 
+                </mat-icon> 
+                <span [routerLink]="['/appointmentmat']">Appointments</span> 
+            </button> 
+             
+            <button mat-button class="menu-button"> 
+                <mat-icon> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-info-circle-fill fav" viewBox="0 0 16 16"> 
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/> 
+                  </svg> 
+                </mat-icon> 
+                <span>About Us</span> 
+            </button> 
+       
+            <mat-divider></mat-divider> 
+       
+            <button mat-button class="menu-button"> 
+              <mat-icon>logout</mat-icon> 
+                <span [routerLink]="['/loginnew']">Logout</span> 
+            </button> <br/> <br/> <br/> <br/> 
+        <span style="color:black">MedCare Dashboard</span><br> 
+        <span style="color:black">2021 All Rights Reserved</span> 
+        </mat-sidenav> 
+     
+        <mat-sidenav-content> 
+            <div class="banner-section-bg-container d-flex flex-column justify-content-center"> 
+                <div class="text-center"> 
+                    <h1 class="banner-heading mb-3"><span style="color: blueviolet;">Stay</span> Safe,<span style="color: blueviolet;">Stay</span> Healthy</h1> 
+                    <p class="banner-caption mb-4">Here the best doctors are on the front lines every day in hospitals to treat you for better recovery</p> 
+                    <p class="banner-caption mb-4">Caring for you.</p> 
+                    <button class="custom-button">Contact Us</button> 
+                    <button class="custom-outline-button">Emergency</button> 
+                    <p class="pt-2" style=" color: #d0b200">24/7 Service  Available</p> 
+                </div> 
+            </div> 
+           
+            <div class="wcu-section pt-5 pl-5"> 
+                <div class="container"> 
+                    <div class="row"> 
+                        <div class="col-12"> 
+                            <h1 class="wcu-section-heading" id="wcuSection">About Us</h1> 
+                            <p class="wcu-section-description"> 
+                    The Medcare Healthcare Group was set up as a consequence of Mr Mahesh  and his wife Dr Divya courage, coupled with their ambitious plans and innovative ideas to make quality healthcare services accessible and affordable. An initiative that has changed the healthcare landscape of the region. They have been successful in creating a viable business model along with making healthcare more accessible and affordable. The Ivy Healthcare Group stands testimony to one of the best patient-care facilities in Punjab. Ivy hospitals, where compassion rules over commercialism, quality healthcare treatments are provided using state-of-art equipment - at affordable rates, stand tall as one of the most sought–after and reliable healthcare institute of North India. 
+    <br><br/>With a team of highly qualified and experienced doctors, from premier institutes of the country, many complex cases and surgeries are performed across the six facilities in the group. All facilities are NABH compliant and most hospitals are NABH accredited - which is the highest standard quality accreditation for hospitals in India. The flagship hospital in Mohali was set up in 2007 with a promise to provide ethical treatment to all and take quality healthcare services to the doorstep of people from all sections of the society. The group currently provides treatment to over 200,000 patients annually and has close to 1100 beds and over 25 super-specialities across its six facilities. 
+                            </p> 
+                            <div class="healthy-section pt-5 pb-5"> 
+                                <div class="container"> 
+                                    <div class="row"> 
+                                        <div class="col-12 col-md-5"> 
+                                            <div class="justify-content-start"> 
+                                                <img src="../../assets/healthycare.png" class="healthy-section-img" /> 
+                                            </div> 
+                                        </div> 
+                                        <div class="col-12 col-md-7"> 
+                                            <h1 class="healthy-section-heading"> 
+                                                We Take Care Of Your Healthy Life 
+                                            </h1> 
+                                            <p class="healthy-section-description"> 
+                                                Health care is vital to all of us some of the time,but public health is vital to all of us of the time.Healthcare is not a privilage.It's a right as fundamental to every one.The healthcare system is really designed for being unhealthy.If you are a healthy person and workhard to be healthy,there are no benefits. 
+                                            </p> 
+                                            <button class="custom-button">Learn More</button> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+                            </div> 
+     
+                            <h1 class="heading"><span>Our</span> <span style="color: blueviolet;" >Vision</span></h1> 
+                     <h3 style="text-align: center;">To be the largest and the most respected healthcare provider in the India.</h3> 
+     
+                     <h1 class="heading"><span>Our</span> <span style="color: blueviolet;" >Mission</span></h1> 
+                     <h3 style="text-align: center;">To Provide Honest, Affordable and Accessible Healthcare services to all.</h3> 
+                        </div> 
+                        <h1 class="heading"><span>Our</span> <span style="color: blueviolet;" >Services</span></h1> 
+                        <div class="col-12 col-md-4"> 
+                            <div class="wcu-card p-3 mb-3"> 
+                                <img src="../../assets/service1.png" class="wcu-card-image" /> 
+                                <h1 class="wcu-card-title mt-3" style=" color: #d0b200">Free Checkups</h1> 
+                                <p class="wcu-card-description"> 
+                                   The Free checkups available Under Health Cover,you need to visit nearest branch office to inform about free medical check-up facility. 
+                                </p> 
+                            </div> 
+                        </div> 
+                        <div class="col-12 col-md-4"> 
+                            <div class="wcu-card p-3 mb-3"> 
+                                <img src="../../assets/service2.png"class="wcu-card-image" /> 
+                                <h1 class="wcu-card-title mt-3" style=" color: #d0b200">24/7 Ambulance</h1> 
+                                <p class="wcu-card-description"> 
+                                  We provide best ambulance service in india with our 200 plus ambulance network. 
+                                </p> 
+                            </div> 
+                        </div> 
+                        <div class="col-12 col-md-4"> 
+                            <div class="wcu-card p-3 mb-3"> 
+                                <img src="../../assets/facility4.png" class="wcu-card-image" /> 
+                                <h1 class="wcu-card-title mt-3" style=" color: #d0b200">Expert Doctors</h1> 
+                                <p class="wcu-card-description"> 
+                                Here the doctors are well experienced health Specialist provide best service to help Patients. 
+                                </p> 
+                            </div> 
+                        </div> 
+                        <div class="col-12 col-md-4"> 
+                            <div class="wcu-card p-3 mb-3"> 
+                                <img src="../../assets/service3.png" class="wcu-card-image" /> 
+                                <h1 class="wcu-card-title mt-3" style=" color: #d0b200">Medicines</h1> 
+                                <p class="wcu-card-description"> 
+                                   During a hospital stay,your doctor will prescribe your medication for you and it will be given to you by your nurses. 
+                                </p> 
+                            </div> 
+                        </div> 
+                        <div class="col-12 col-md-4"> 
+                            <div class="wcu-card p-3 mb-3"> 
+                                <img src="../../assets/service4.png" class="wcu-card-image" /> 
+                                <h1 class="wcu-card-title mt-3" style=" color: #d0b200">Bed Facility</h1> 
+                                <p class="wcu-card-description"> 
+                                   Here the hospital provide many beds for patients in keen of to keep their health condition Safe.  
+                                </p> 
+                            </div> 
+                        </div> 
+                        <div class="col-12 col-md-4"> 
+                            <div class="wcu-card p-3 mb-3"> 
+                                <img src="../../assets/service5.png" class="wcu-card-image" /> 
+                                <h1 class="wcu-card-title mt-3" style=" color: #d0b200">Total Care</h1> 
+                                <p class="wcu-card-description"> 
+                                    Here a nursing model where one nurse provide total care to a single or group of patients,the nurse issues care until the end of the patients medical needs.  
+                                </p> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+     
+            <section class="facility" id="facility"> 
+                <div class="container"> 
+                    <h1 class="heading"><span>Our</span> <span style="color: blueviolet;" >Facilities</span></h1> 
+                    <div class="box-container"> 
+                        <div class="box" data-aos="zoom-in"> 
+                            <a href="images/img1.jpg" title="our team"> 
+                                <img src="../../assets/facility1.png" alt=""> 
+                            </a> 
+                        </div> 
+                        <div class="box" data-aos="zoom-in"> 
+                            <a href="images/img2.jpg" title="our lab"> 
+                                <img src="../../assets/facility2.png" alt=""> 
+                            </a> 
+                        </div> 
+                        <div class="box" data-aos="zoom-in"> 
+                            <a href="images/img3.jpg" title="emergency rooms"> 
+                                <img src="../../assets/facility3.png" alt=""> 
+                            </a> 
+                        </div> 
+                        <div class="box" data-aos="zoom-in"> 
+                            <a href="images/img4.jpg" title="expert doctors"> 
+                                <img src="../../assets/facility4.png" alt=""> 
+                            </a> 
+                        </div> 
+                        <div class="box" data-aos="zoom-in"> 
+                            <a href="images/img5.jpg" title="expert doctors"> 
+                                <img src="../../assets/facility5.png" alt=""> 
+                            </a> 
+                        </div> 
+                        <div class="box" data-aos="zoom-in"> 
+                            <a href="images/img6.jpg" title="enough beds"> 
+                                <img src="../../assets/facility6.png" alt=""> 
+                            </a> 
+                        </div> 
+                    </div> 
+                </div> 
+            </section> 
+     
+             <!-- post section starts  --> 
+        <section class="post" id="post"> 
+            <div class="container min-vh-100"> 
+                <h1 class="heading"><span>Our</span> <span style="color: blueviolet;" >Posts</span></h1> 
+                <div class="box-container"> 
+                    <div class="box" data-aos="fade-right"> 
+                        <img src="../../assets/facility2.png" alt=""> 
+                        <div class="content"> 
+                            <span>Aug 05, 2021</span> 
+                            <a href="#"> 
+                                <h2>Best Labs in Medcare</h2> 
+                            </a> 
+                            <p>Medcare Healthcare offer a comprehensive range of 400+ clinical laboratory tests and profiles, whst, Thyroid test, Allergy test, Pregnancy test, Heart profile, Diabetes profile.</p> 
+                            <a href="#"><button class="button" style="color: blueviolet;" >learn more</button></a> 
+                        </div> 
+                    </div> 
+                    <div class="box" data-aos="fade-up"> 
+                        <img src="../../assets/facility4.png" alt=""> 
+                        <div class="content"> 
+                            <span>sep 15, 2021</span> 
+                            <a href="#"> 
+                                <h2>Best doctors in india</h2> 
+                            </a> 
+                            <p>Here doctors provide world class treatment at an affordable cost who are highly qualified and trained in their respective field of Medicine.</p> 
+                            <a href="#"><button class="button" style="color: blueviolet;" >learn more</button></a> 
+                        </div> 
+                    </div> 
+                    <div class="box" data-aos="fade-left"> 
+                        <img src="../../assets/facility5.png" alt=""> 
+                        <div class="content"> 
+                            <span>Oct 08, 2021</span> 
+                            <a href="#"> 
+                                <h2>Best ICU's and Emergency Rooms</h2> 
+                            </a> 
+                            <p> It offers the best medical care in a facility customized to deliver the highest quality of service, ICU facilities with ventilator support at maximum capacity, with many even having a waiting list of patients.</p> 
+                            <a href="#"><button class="button" style="color: blueviolet;" >learn more</button></a> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </section> 
+        <!-- post section ends --> 
+     
+        <!-- contact section starts  --> 
+       
+           <!--<div class="container contact"> 
+                <div class="row justify-content-center"> 
+                    <h1 class="heading"><span style="color: black;">Book</span> <span style="color: blueviolet;" >Appointment</span></h1> 
+                    <div class="col-md-10"> 
+                        <form action=""> 
+                            <div class="inputBox"> 
+                                <input type="text" placeholder="Full name"> 
+                                <input type="number" placeholder="Phone"> 
+                            </div> 
+                            <div class="inputBox"> 
+                                <input type="email" placeholder="your Email"> 
+                                <input type="date"> 
+                            </div> 
+                            <textarea name="" id="" cols="10" rows="5" placeholder="message ( optional )"></textarea> 
+                            <input [routerLink]="['/appointmentmat']" style="color: black;" type="submit" name="" id="" value="BOOK NOW" class="button p-1"> 
+                        </form> 
+                    </div> 
+                </div> 
+            </div> --> 
+         
+        <!-- contact section ends --> 
+     
+        <div class="vr-footer-section pt-5 pl-3 pb-5"> 
+            <div class="container"> 
+                <div class="row"> 
+                    <div class="col-3"> 
+                        <div class="text-center "> 
+                            <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/navbar-logo-img.png" class="logo" /> 
+                            <p class="follow" >Follow Us On</p><br> 
+                            <div class="d-flex flex-row justify-content-center"> 
+     
+                                <div class="vr-footer-section-icon-container"> 
+                                    <i class="fa fa-google icon"></i> 
+                                </div> 
+                                <div class="vr-footer-section-icon-container"> 
+                                    <i class="fa fa-twitter icon"></i> 
+                                </div> 
+                                <div class="vr-footer-section-icon-container"> 
+                                    <i class="fa fa-instagram icon"></i> 
+                                </div> 
+                                <div class="vr-footer-section-icon-container"> 
+                                    <i class="fa fa-linkedin-square icon"></i> 
+                                </div> 
+                            </div> 
+                             
+                        </div> 
+                    </div> 
+                     
+                    <div class="col-3"> 
+                        <h1 class="vr-footer-section-heading pb-2">Services</h1> 
+                        <ul class="vr-footer-section-list"> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">FullBody CheckUp</span> 
+                            </li> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">Body Scanner</span> 
+                            </li> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">Online Doctor Consultation</span> 
+                            </li> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">Doctors by Speciality</span> 
+                            </li> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">Med-care Health Program</span> 
+                            </li> 
+                        </ul> 
+                    </div> 
+     
+                    <div class="col-3"> 
+                        <h1 class="vr-footer-section-heading pb-2">About Med-care</h1> 
+                        <ul class="vr-footer-section-list"> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">About Us</span> 
+                            </li> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">Health Queries</span> 
+                            </li> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">Compliance</span> 
+                            </li> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">Doctors by Speciality</span> 
+                            </li> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">Terms and Conditions</span> 
+                            </li> 
+                            <li class="mb-3"> 
+                                <span class="vr-footer-section-text">Privacy Policy</span> 
+                            </li> 
+                        </ul> 
+                    </div> 
+                    <div class="col-3 "> 
+                            <h1 class="vr-footer-section-heading pb-2">Contact Us</h1> 
+                            <ul class="vr-footer-section-list"> 
+                                <li class="mb-3"> 
+                                    <i class="fa fa-envelope icon mr-2"></i> 
+                                    <span class="vr-footer-section-text">medcare134@gmail.com</span> 
+                                </li> 
+                                <li class="mb-3"> 
+                                    <i class="fa fa-phone icon mr-2"></i> 
+                                    <span class="vr-footer-section-text">+91 9334706789</span> 
+                                </li> 
+                            </ul> 
+                        </div> 
+                </div> 
+                <hr class="horizontal-line" style="color: white;" /> 
+                <div class="text-center"> 
+                    <i class="fa fa-copyright icon" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-copyright">2021 by Med-care Created with Creativity<br>All Rights Reserved.</span> 
+                </div> 
+            </div> 
+        </div> 
+     
+        </mat-sidenav-content> 
+    </mat-sidenav-container> 
+   

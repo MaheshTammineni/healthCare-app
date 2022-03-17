@@ -1,0 +1,231 @@
+<mat-toolbar > 
+        <button mat-icon-button *ngIf="sidenav.mode === 'side'" (click)="sidenav.toggle()"> 
+            <mat-icon *ngIf="!sidenav.opened"> 
+                menu 
+            </mat-icon> 
+            <mat-icon *ngIf="sidenav.opened"> 
+                close 
+            </mat-icon> 
+        </button> 
+        <span class="dash"> <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/navbar-logo-img.png" class="navbar-image" alt="" />MedCare</span> 
+      </mat-toolbar> 
+      <mat-sidenav-container> 
+        <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8"> 
+       
+            <img class="avatar mat-elevation-z8" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/user-profile-img.png"> 
+            <div class="name"> 
+                <tbody> 
+                  <tr *ngFor="let row of userData"> 
+                    <td >{{row.name}}</td> 
+                  </tr> 
+                 
+                </tbody> 
+                </div> 
+       
+            <mat-divider></mat-divider> 
+      <div> 
+            <button mat-button class="menu-button"> 
+                <mat-icon>dashboard</mat-icon> 
+                <span [routerLink]="['/dashboardmaterial']">Dashboard</span> 
+            </button> 
+          </div> 
+            <button mat-button class="menu-button"> 
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" fill="currentColor" class="bi bi-bar-chart fav" viewBox="0 0 16 16"> 
+                <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" /> 
+            </svg> </mat-icon> 
+              <span [routerLink]="['/growthmain']">Growth</span> 
+          </button> 
+       
+            
+            <button mat-button class="menu-button"> 
+                <mat-icon> 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-pencil-square fav" viewBox="0 0 16 16"> 
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> 
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> 
+                </svg> 
+                </mat-icon> 
+                <span >Appointments</span> 
+            </button> 
+            <button mat-button class="menu-button"> 
+                <mat-icon> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-info-circle-fill fav" viewBox="0 0 16 16"> 
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/> 
+                      </svg> 
+                    </mat-icon> 
+                    <span [routerLink]="['/educationmat']">About Us</span> 
+            </button> 
+       
+            <mat-divider></mat-divider> 
+       
+            <button mat-button class="menu-button"> 
+              <mat-icon>logout</mat-icon> 
+                <span [routerLink]="['/loginnew']">Logout</span> 
+            </button> <br/> <br/> <br/> <br/> 
+        <span style="color:black">MedCare Dashboard</span><br> 
+        <span style="color:black">2021 All Rights Reserved</span> 
+        </mat-sidenav> 
+     
+        <mat-sidenav-content> 
+            <div class="content "> 
+              <div class="container"> 
+                    <div class="row1 col-md-10"> 
+                        <div class="container "> 
+                            <div class="d-flex flex-row"> 
+                                <h1 class="form-heading maindash pl-2 pt-3">Appointments</h1>  
+                                <div class="d-flex ms-auto pt-3 my-lg-0"> 
+                                    <a> 
+                                        <svg [routerLink]="['/addnewappoint']" xmlns="http://www.w3.org/2000/svg" width="25px" height="30px" fill="currentColor" class="bi bi-plus-square plus" viewBox="0 0 16 16"> 
+                                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/> 
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/> 
+                                        </svg> 
+                                        </a>  
+                                    </div>    
+                            
+                                   </div> 
+                             </div> 
+                          </div> 
+             <hr style="height:1.5px;border-width:0;color:gray;background-color:gray"> 
+             <div class="container1 " > 
+                <h1 class="upcoming">UPCOMING APPOINTMENTS</h1> 
+                <table class="table  mt-3"> 
+                    <thead> 
+                        <tr> 
+                            <th scope="col">Date & Time-Slot</th> 
+                            <th scope="col">Doctor Name</th> 
+                            <th scope="col">Location</th> 
+                            <th scope="col">Action</th> 
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+                        <tr *ngFor="let row of appointData | sortList : 'appointdate'"> 
+                             <td class="rowcolor maindash"> 
+                                 <svg   xmlns="http://www.w3.org/2000/svg" width="40px" height="60px" fill="currentColor" class="bi bi-person-check person pb-2 mr-1" viewBox="0 0 16 16"> 
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" /> 
+                    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" /> 
+                                        </svg>  {{row.appointdate}}, {{row.timeslot}} 
+                            </td>  
+                            <td class="rowcolor">{{row.doctor}}</td> 
+                            <td class="rowcolor">{{row.location}}</td>  
+                            <td> 
+                                <button (click)="onEdit(row)" class="btn btn-primary" > <i class="fa fa-edit icon navicon" style="color:white;"></i></button> 
+                                <button (click) = "deleteAppoint(row)" class="btn btn-danger mx-3">Cancel Appointment</button> 
+                            </td>       
+                        </tr>        
+                    </tbody>       
+                </table> 
+            <br> 
+            
+            <h1 class="upcoming">PREVIOUS APPOINTMENTS</h1> 
+            <div class="d-flex flex-row "> 
+                <label class="maindash">   <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="60px" fill="currentColor" class="bi bi-person-check person pb-2 mr-1" viewBox="0 0 16 16"> 
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" /> 
+                    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" /> 
+                                        </svg>2021-10-02, 11-01PM</label> 
+                <p class="leftdetails1 justify-content-end">Swetha (M.B.B.S)<br>Hyderabad</p> 
+                <a > 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="30px" fill="currentColor" class="bi bi-chevron-right pt-2" viewBox="0 0 16 16"> 
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" /> 
+                    </svg> </a> 
+            </div> 
+            <hr>  
+            <div class="d-flex flex-row "> 
+                <label class="maindash"> <svg   xmlns="http://www.w3.org/2000/svg" width="40px" height="60px" fill="currentColor" class="bi bi-person-check person pb-2 mr-1" viewBox="0 0 16 16"> 
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" /> 
+                    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" /> 
+                                        </svg>2021-09-30, 09-11AM</label> 
+                <p class="leftdetails1 justify-content-end">Arvind (Cardiologist)<br>Chennai</p> 
+                <a> 
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="25px" height="30px" fill="currentColor" class="bi bi-chevron-right pt-2" viewBox="0 0 16 16"> 
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" /> 
+                    </svg></a> 
+            </div> 
+            <hr> 
+            <div class=" d-flex flex-row "> 
+                <label class="maindash"> <svg   xmlns="http://www.w3.org/2000/svg" width="40px" height="60px" fill="currentColor" class="bi bi-person-check person pb-2 mr-1" viewBox="0 0 16 16"> 
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" /> 
+                    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" /> 
+                                        </svg>2021-09-20, 04-06PM</label> 
+                <p class="leftdetails1 justify-content-end">Himanshu (M.ch)<br>Mumbai</p> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="30px" fill="currentColor" class="bi bi-chevron-right pt-2" viewBox="0 0 16 16"> 
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" /> 
+                    </svg> 
+            </div> 
+            <hr> 
+            <div class="d-flex flex-row "> 
+                <label class="maindash"> <svg   xmlns="http://www.w3.org/2000/svg" width="40px" height="60px" fill="currentColor" class="bi bi-person-check person pb-2 mr-1" viewBox="0 0 16 16"> 
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" /> 
+                    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" /> 
+                                        </svg>2021-08-13, 02-04PM</label> 
+                <p class="leftdetails1 justify-content-end">Vamsi (M.s)<br>Vijayawada</p> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="30px" fill="currentColor" class="bi bi-chevron-right pt-2" viewBox="0 0 16 16"> 
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" /> 
+                    </svg> 
+            </div> 
+           
+     
+            <div class="modal" tabindex="-1" id="example" role="dialog"  [ngStyle]="{'display':displayStyle}"> 
+     
+                <div class="modal-dialog" role="document"> 
+           
+                  <div class="modal-content"> 
+           
+                    <div class="modal-header" style="background-color: #a5b4fc;"> 
+           
+                      <h4 class="modal-title">Add Appointment Data</h4> 
+           
+                    </div> 
+           
+                    <div class="modal-body"> 
+                        <form [formGroup]= "formValue"> 
+                                <div class="d-flex flex-row "> 
+                                    <label class="datepadding">Date</label>   
+                                    <input type="date" class="form-control"  id="myRange" formControlName="appointdate"/> 
+                                </div> 
+                                <hr>  
+                                <div class="d-flex flex-row "> 
+                                    <label> Time Slot</label> 
+                                    <select class="leftdetails justify-content-end" name="time" id="time" formControlName="timeslot"> 
+                                        <option value="" disabled selected>Select Slot</option> 
+                                        <option value="9:30PM-11:00PM">9:30PM-11:00PM</option> 
+                                        <option value="11:00PM-12:30PM">11:00PM-12:30PM</option> 
+                                        <option value="3:00PM-4:30PM">3:00PM-4:30PM</option> 
+                                        <option value="4:30PM-6:00PM">4:30PM-6:00PM</option> 
+                                    </select> 
+                                </div> 
+                                <h1 class="contact">CONTACT DETAILS</h1> 
+                                <hr> 
+                                <div class="d-flex flex-row "> 
+                                    <label>Phone</label> 
+                                    <p class="leftdetails justify-content-end">+91 7686887978</p> 
+                                </div> 
+                                <hr> 
+                                <div class="d-flex flex-row "> 
+                                    <label>Email</label> 
+                                    <p class="leftdetails justify-content-end">medcare126@gmail.com</p> 
+                                </div> 
+                                <hr> 
+                                <a href="#" class="tips">Tips on how to prepare for your appointment</a> 
+                   
+                        </form> 
+                        </div> 
+                        
+             
+                        <div class="modal-footer"> 
+                            <button type="button" id="cancel" class="btn btn-secondary"  (click)="closePopup()">Close</button> 
+                           <!-- <button type="button" *ngIf="showAdd" (click)=" postAppointDetails()" class="btn btn-primary">Add</button> --> 
+                            <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)=" updateAppointDetails()">Update</button> 
+                          </div> 
+             
+                      </div> 
+             
+                    </div> 
+             
+                 
+             
+                </div>  
+    </div> 
+             </div> 
+            </div> 
+        </mat-sidenav-content> 
+    </mat-sidenav-container>
+    

@@ -1,0 +1,348 @@
+<div class="bg-container">
+    <h1 style="font-size:50px;text-align: center;color: white; padding-top: 180px; ">    <img
+src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/navbar-logo-img.png" class="navbar-image"
+alt="" />
+       <span style="color:blue;">Med</span>care</h1>
+     
+<div class="container" style="width:450px">
+<div class="card">
+<h5 class=" text-center card-header "
+style="color: blue; font-size: 15px; padding:10px; font-weight: 500; background-color: #f1f1f1">LOGIN
+</h5>
+<div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit2(loginForm)">  
+        <div class="form-row">      
+            <div class="form-group col">
+                <label>Email</label><br>
+                <div class="d-flex flex-row justify-content-start">
+<!--                     <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="38px"
+ fill="currentColor" class="bi bi-envelope-fill fav" style="padding-right: 4px;"
+viewBox="0 0 16 16">
+                       
+<path
+d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                     
+</svg> -->
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+  </svg>
+              <input type="text" placeholder="Enter Email" formControlName="email" class="form-control validate" required
+           [ngClass]="{ 'is-invalid': submitted && f1['email'].errors }"                      
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" /> </div>
+            <div
+*ngIf="loginForm.invalid && (loginForm.touched || loginForm.dirty) && submitted && f1['email'].errors"
+class="invalid-feedback">
+                    <div *ngIf="f1['email'].errors['required']">Email is required</div>
+                    <div *ngIf="f1['email'].errors['pattern']">Email must be a valid
+email address</div>
+            </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                 <div  class=" d-flex flex-row">
+                       <label>Password</label>
+                       <span class="show" id="myInput"  type="text"
+style="margin-left : auto"  (click)="toggle()">Show Password</span>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="35px"
+fill="currentColor" class="bi bi-file-lock2-fill fav" viewBox="0 0 16 16">
+                   
+<path d="M7 6a1 1 0 0 1 2 0v1H7V6z" />
+                   
+<path
+d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-2 6v1.076c.54.166 1 .597 1 1.224v2.4c0 .816-.781 1.3-1.5 1.3h-3c-.719 0-1.5-.484-1.5-1.3V8.3c0-.627.46-1.058 1-1.224V6a2 2 0 1 1 4 0z" />
+                 
+</svg>
+                <input type="password"  placeholder="Enter Password"
+[type]=" showMe? 'text' : 'password'"  formControlName="password"
+ class="form-control validate" required
+[ngClass]="{ 'is-invalid': submitted && f1['password'].errors }" /> </div>
+
+              <div *ngIf="submitted && f1['password'].errors" class="invalid-feedback">
+                    <div *ngIf="f1['password'].errors['required']">Password is required
+</div>
+                    <div *ngIf="f1['password'].errors['minlength']">Password must be at
+least 6 characters</div>
+                    <div *ngIf="f1['password'].errors['pattern']">Password should
+contains lower,upper letter,Special symbol </div>
+                </div>
+            </div>            
+        </div>
+        <div class="text-left">
+        <button type="submit"   value="Login" id="login-form-submit"
+class="btn btn-primary w-100 mt-3 mb-1">
+        <svg xmlns="http://www.w3.org/2000/svg"  width="20px" height="28px"
+fill="currentColor" class="bi bi-person fav" viewBox="0 0 16 16">
+           
+<path
+d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+         
+</svg>
+        LogIn</button>
+        </div>
+
+        <div class="d-flex flex-row">
+   
+<hr width="280px"><span  class="mt-2 mb-1">OR</span>
+<hr width="280px">
+</div>
+
+        <div class="text-left">
+            <button type="button" style="background-color: orange;" data-bs-toggle="modal"
+data-bs-target="#exampleModal1" class="btn btn-primary w-100 mt-1 mb-1">Create your
+account</button>
+            </div>
+   
+<!-- Button trigger modal -->
+
+<!--Modal -->
+<div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content" style="width:500px">
+    <div class="modal-header">
+      <h1 class="modal-title" id="exampleModalLabel" style="color: blue;">Create
+Account</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"
+aria-label="Close" (click)="topclose1()"></button>
+    </div>
+    <div class="modal-body">
+        <div class="col-12 pt-3"
+style="background-color: #f1f1f1;border-style: solid; border-color: blue;">
+          <form [formGroup]="registerForm" (ngSubmit)="onregister1()">
+          <div class="form-group row">
+          <label
+class="col-lg-3 col-form-label form-control-label">Name</label>
+          <div class="col-lg-9">
+          <input type="text" placeholder="Enter Full Name"
+formControlName="name" required class="form-control"
+[ngClass]="{ 'is-invalid': submitted1 && f['name'].errors }"
+  />
+          <div *ngIf="submitted1 && f['name'].errors"
+class="invalid-feedback">
+              <div *ngIf="f['name'].errors['required']">Name is
+required</div>
+          </div>
+          </div>
+          </div>
+
+          <div class="form-group row">
+            <label
+class="col-lg-3 col-form-label form-control-label">Gender</label>
+            <div class="col-lg-9">
+                <select class="leftdetails justify-content-end"
+formControlName="gender" class="form-control"
+[ngClass]="{ 'is-invalid': submitted1 && f['gender'].errors }">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <div *ngIf="submitted1 && f['gender'].errors"
+class="invalid-feedback">
+                    <div *ngIf="f['gender'].errors['required']">
+select Gender</div>
+                </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label
+class="col-lg-3 col-form-label form-control-label">Age</label>
+            <div class="col-lg-9">
+            <input type="number" placeholder="Enter Age"
+formControlName="age" required class="form-control"
+[ngClass]="{ 'is-invalid': submitted1 && f['age'].errors }"   />
+            <div *ngIf="submitted1 && f['age'].errors"
+class="invalid-feedback">
+                <div *ngIf="f['age'].errors['required']">Age is
+required</div>
+            </div>
+            </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label
+class="col-lg-3 col-form-label form-control-label">Mobile
+No:</label>
+                <div class="col-lg-9">
+                <input  type="number"
+placeholder="Enter 10-digit Mobile Number"
+formControlName="mobile" class="form-control" required
+[ngClass]="{ 'is-invalid': submitted1 && f['mobile'].errors }"
+  />
+                <div *ngIf="submitted1 && f['mobile'].errors"
+class="invalid-feedback">
+                    <div *ngIf="f['mobile'].errors['required']">
+Mobile Number(10digits) is required</div>
+                </div>
+                </div>
+            </div>
+
+
+
+
+       
+          <div class="form-group row">
+          <label
+class="col-lg-3 col-form-label form-control-label">Email</label>
+          <div class="col-lg-9">
+            <input type="text" placeholder="Enter Email"
+formControlName="email" class="form-control"
+[ngClass]="{ 'is-invalid': submitted1 && f['email'].errors }"  
+                         
+pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"        
+    />
+            <div *ngIf="submitted1 && f['email'].errors"
+class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">Email
+is required</div>
+                <div *ngIf="f['email'].errors['pattern']">Email
+must be a valid email address</div>
+            </div>
+           </div>
+          </div>
+
+          <div class="form-group row">
+            <label
+class="col-lg-3 col-form-label form-control-label">Password</label>
+            <div class="col-lg-9">
+                   <input type="password"
+ placeholder="Enter Password"  required
+formControlName="password"  class="form-control"
+[ngClass]="{ 'is-invalid': submitted1 && f['password'].errors }" />
+                   <div *ngIf="submitted1 && f['password'].errors"
+class="invalid-feedback">
+                       <div
+*ngIf="f['password'].errors['required']">Password is
+required</div>
+                     
+                       <div
+*ngIf="f['password'].errors['minlength']">Password must be
+at least 6 characters</div>
+                       <div
+*ngIf="f['password'].errors['maxlength']">Password Not
+exceed 10 characters</div>
+                       <div
+*ngIf="f['password'].errors['pattern']">Password should
+contains lower,upper letter,Special symbol</div>
+                   </div>
+            </div>
+            </div>
+           
+          <div class="form-group row">
+          <label
+class="col-lg-3 col-form-label form-control-label">Confirm
+Password</label>
+          <div class="col-lg-9">
+          <input class="form-control" type="password"
+placeholder="Re-Enter password" required
+formControlName="cpassword">
+          </div>
+          </div>
+
+       
+          <div class="modal-footer">
+            <button type="button"
+style="color: blue; font-size: 15px; padding:5px; background-color: #f1f1f1"
+class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+            <button type="submit" class="btn btn-primary"
+data-bs-dismiss="modal">Save</button>
+          </div>
+          </form>
+          </div>
+          </div>
+         
+
+  </div>
+</div>
+</div>
+<div class="modal fade"  id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="width:650px">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel" style="color: blue;">Terms
+of Use</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"
+aria-label="Close" (click)="topclose1()"></button>
+        </div>
+        <div class="modal-body">
+            <div class="col-12">
+         
+              <div class="containerterm ">
+                <div class="modal-body">
+                    <p class="modal-description">
+                        A Terms and Conditions agreement acts as
+legal contracts between you (the company) who has the website or
+mobile app, and the user who accesses your website/app.
+                        Having a Terms and Conditions agreement is
+completely optional.
+                        <br>Check out our Terms and Conditions FAQ
+for more helpful insight into these important agreements.
+                    </p>
+                    <ol class="modal-list">
+                        <li class="list-item">
+                            <span
+class="conditions">Introduction:</span>This following sets
+out the terms and conditions on which you may use the content on
+                            business-standard.com website,
+business-standard.com's mobile browser site, Business Standard
+instore Applications and other digital publishing services.
+                        </li>
+                        <li class="list-item">
+                            <span
+class="conditions">Registration Access and Use:</span>We
+welcome users to register on our digital platforms. We offer the
+below mentioned registration services which may be subject to
+change in the future. All changes will be appended in the terms
+and conditions page and communicated to existing users by email.
+                        </li>
+                        <li class="list-item">
+                            <span class="conditions">Privacy
+Policy and Registration:</span>All information received by
+us from your registration on business-standard.com or other
+digital products of Business Standard will be used by Business
+Standard in accordance with our Privacy Policy. Kindly read the
+below mentioned details.
+                            On registration, we expect you to
+provide Business Standard with an accurate and complete
+information of the compulsory fields.
+                        </li>
+                        <li class="list-item">
+                            <span
+class="conditions">Cancellation Policy:</span>For Digital
+subscriptions by placing your order you agree that we may start
+your subscription immediately upon our accepting your order.
+This means that you are not entitled to a refund if you change
+your mind after we have provided you with access to your
+subscription.
+                        </li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="decline"
+data-bs-dismiss="modal">Decline</button>
+
+                    <button type="button" class="agree"
+data-bs-toggle="modal" data-bs-target="#exampleModal">I
+Agree</button>
+                </div>
+            </div>
+           
+              </div>
+              </div>
+      </div>
+    </div>
+    </div>
+</form>
+</div>
+
+<!--<div id="#success-message" *ngIf="message!==''" class="text-left"> 
+  <div class="alert alert-warn" id="success-message" >{{message}}</div> 
+</div>-->
+</div>
+</div>

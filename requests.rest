@@ -1,0 +1,14 @@
+POST  http://localhost:7001/api/growthmain 
+Content-Type: application/json 
+ 
+{ 
+    "email": "son112@gmail.com", 
+    "password": "Mahi@24HCL" 
+} 
+ 
+### 
+GET   http://localhost:7001/api/getuserdetails 
+ 
+### 
+POST http://localhost:7001/api/get-user 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjM3MTQ3MzgzLCJleHAiOjE2MzcxNTA5ODN9.-sbDzbPMh_9-_jHMH4enEqBJBH0Jz9l8UMpInGsfEx4 

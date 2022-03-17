@@ -1,0 +1,66 @@
+.show{ 
+color:gray; 
+    } 
+    .container{ 
+ padding-top: 2px; 
+ padding-bottom: 100px;
+    } 
+    .bg-container{ 
+background-image: url("../../assets/loginbackground.png"); 
+width: auto;
+height: auto; 
+    } 
+    .navbar-image { 
+width: 50px; 
+height: 50px; 
+    } 
+    .mybtn-right{ 
+text-align: right; 
+position: relative; 
+left: 200px; 
+    } 
+     
+    .leftdetails { 
+margin-left: auto; 
+    } 
+     
+    .conditions { 
+font-size: 20px; 
+font-weight: 700px; 
+    } 
+     
+     
+    .modal-title { 
+font-size: 30px; 
+    } 
+     
+    .agree { 
+width: 150px; 
+background-color: #ace0f9; 
+margin-right: 10px; 
+padding: 6px; 
+height: 40px; 
+border-radius: 5px; 
+    } 
+     
+    .decline { 
+background-color: lightgray; 
+color: black; 
+width: 150px; 
+height: 40px; 
+border-color: black; 
+border-radius: 5px; 
+margin-right: 100px; 
+    } 
+     
+    .containerterm { 
+background-color: #f1f1f1; 
+padding: 10px; 
+margin-left: auto; 
+margin-right: auto; 
+width: 600px; 
+    } 
+    .alert{ 
+color: red; 
+    } 
+    

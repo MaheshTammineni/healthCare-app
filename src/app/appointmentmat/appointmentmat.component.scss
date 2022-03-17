@@ -1,0 +1,297 @@
+.menu-spacer { 
+flex: 1 1 auto; 
+} 
+    
+  mat-toolbar { 
+background: #a5b4fc; 
+color: white; 
+} 
+.dash{ 
+margin-right: 150px; 
+} 
+    
+  .toolbar #twitter-logo { 
+height: 40px; 
+margin-left: 50px; 
+margin-bottom: 10px; 
+} 
+    
+  .toolbar #youtube-logo { 
+height: 40px; 
+margin-left: 2px; 
+padding-right: 2px; 
+margin-bottom: 10px; 
+} 
+.tiles{ 
+border-radius: 50px; 
+} 
+  
+    
+.mat-sidenav { 
+margin: 16px; 
+width: 200px; 
+border-right: none; 
+background: #a5b4fc; 
+color: white; 
+border-radius: 10px; 
+padding: 16px; 
+text-align: center; 
+} 
+    
+.content { 
+border-radius: 10px; 
+background-color: #f1f1f1; 
+margin: 16px; 
+margin-left: 32px; 
+color:black; 
+} 
+    
+mat-sidenav-container { 
+height: calc(100vh - 65px); 
+} 
+.name { 
+margin-top: 8px; 
+margin-left: 25px; 
+font-weight: normal; 
+} 
+.menu-button { 
+width: 100%; 
+display: flex; 
+align-items: center; 
+justify-content: flex-start; 
+font-size: 1rem; 
+    
+    mat-icon { 
+margin-right: 8px;  } 
+} 
+.fav{ 
+padding-bottom:5px; 
+} 
+.avatar { 
+margin-top: 16px; 
+ width: 100px; 
+ height: 100px; 
+ border-radius: 50%; 
+} 
+    
+.name { 
+margin-top: 8px; 
+font-weight: normal; 
+} 
+.maindash{ 
+font-weight: 500; 
+color:blue; 
+} 
+.iconnotification{ 
+color:white; 
+} 
+mat-divider { 
+margin-top: 16px; 
+margin-bottom: 16px; 
+background-color: rgba(255, 255, 255, 0.5); 
+} 
+.chart-diplay{ 
+display: grid; 
+grid-template-columns: repeat(2, 1fr); 
+grid-gap: 3em; 
+} 
+.search{ 
+width: 100%; 
+box-sizing: border-box;; 
+border: 2px solid #ccc; 
+border-radius: 25px; 
+font-size: 16px; 
+margin-left: 5px; 
+background-color: white; 
+background-position:  10px; 
+padding: 5px ; 
+} 
+.searchpadding{ 
+margin-left: 10px; 
+border-radius: gray; 
+margin-right: 200px; 
+color: white; 
+background-color: lightslategrey; 
+} 
+.iconsearch{ 
+ margin-top: 10px; 
+} 
+.stats-cards { 
+    .mat-card { 
+     overflow: hidden; 
+ } 
+} 
+   
+  table { 
+ width: 100%; 
+ } 
+    
+a { 
+text-decoration: none; 
+ color: black; 
+} 
+    
+.image { 
+width: 80px; 
+height: 100px; 
+} 
+    
+.example-card { 
+max-width: 100%; 
+ } 
+  .bg-container{background-color: #323f4b;
+} 
+  .progress1{ 
+ background-color: blue; } 
+  .progress2{ background-color: green; 
+} 
+.progress3{ background-color: red; 
+} 
+.progress4{ background-color: orange; 
+} 
+.box3{background-color: orange; 
+} 
+.box1{  background-color: aqua; 
+} 
+.box2{  background-color: lightslategrey; 
+} 
+.box4{ background-color: lightgreen; 
+} 
+.avatar12{ 
+     width: 50px; 
+height: 50px; 
+} 
+    
+.form-heading { 
+font-family: "Roboto"; 
+font-size: 25px; 
+font-weight: 700px; 
+} 
+    
+.person{ 
+color: red; 
+} 
+    
+.rightdetails { 
+margin-right: 150px; 
+color: #0366fc; 
+font-weight: bold; 
+} 
+.rightdetailsw { 
+margin-left: 80px; 
+color: #0366fc; 
+font-weight: bold; 
+} 
+.rightdetailsd{ 
+margin-left: 85px; 
+color: #0366fc; 
+font-weight: bold; 
+} 
+.rightdetails1 { 
+margin-right: 150px; 
+color: white; 
+padding: 7px; 
+text-align: left; 
+font-weight: bold; 
+} 
+    
+.container11 { 
+background-color: #0967d2; 
+border-radius: 2px; 
+width: 700px; 
+height: 100%;
+} 
+    
+.container2 { 
+background-color: #5a7184; 
+border-radius: 2px; 
+width: 700px; 
+height: 100%; 
+} 
+    
+.container56 { 
+padding-top: 20px; 
+} 
+.container4{ 
+text-align: center; 
+} 
+.pencil { 
+color: blue; 
+    
+} 
+    
+    
+.form-heading { 
+font-family: "Roboto"; 
+font-size: 25px; 
+font-weight: 700px;   
+} 
+.form-heading1 { 
+font-family: "Roboto"; 
+font-size: 30px; 
+font-weight: 600px; 
+padding-top: 6px; 
+} 
+.image12 { 
+width: 450px; 
+height: 300px; 
+} 
+    
+.sublist { 
+font-size: 20px; 
+} 
+    
+.container1 { 
+    padding: 20px; 
+} 
+.containersub{ 
+margin-left: 20px; 
+} 
+.embed-responsive-item { 
+padding: 5px; 
+} 
+    
+.growth { 
+font-size: 30px; 
+color: green; 
+padding-top: 5px; 
+text-align: left; 
+} 
+    
+.growth1 { 
+font-size: 30px; 
+color: green; 
+padding-top: 5px; 
+text-align: left; 
+padding-top: 20px; 
+} 
+.para { 
+font-size: 15px; 
+} 
+    
+.paragraph { 
+font-size: 20px; 
+} 
+    
+.thumb { 
+padding: 2px; 
+color: blue; 
+font-size: 30px; 
+} 
+.container56 { 
+padding-top: 20px; 
+} 
+.container4{ 
+text-align: center; 
+} 
+    
+.leftdetails { 
+margin-left: auto; 
+} 
+.leftdetails1 { 
+margin-left: 550px; 
+} 
+.navbar-image{ 
+width: 30px; 
+height: 20px; 
+} 

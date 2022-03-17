@@ -1,0 +1,1677 @@
+<mat-toolbar > 
+    <button mat-icon-button *ngIf="sidenav.mode === 'side'" (click)="sidenav.toggle()"> 
+        <mat-icon *ngIf="!sidenav.opened"> 
+            menu 
+        </mat-icon> 
+        <mat-icon *ngIf="sidenav.opened"> 
+            close 
+        </mat-icon> 
+    </button> 
+   <span class="dash"> <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/navbar-logo-img.png" class="navbar-image" alt="" /> <span style="color:blue;">Med</span>care</span> 
+   <div class="toolbar" role="banner">  
+    <!--<input type="text" class="search" placeholder="Search by name"/> 
+  <button class="btn btn-outline-secondary" class="searchpadding" type="button" > Search</button> --> 
+  
+  <input type="text" class="search" list="suggestions" placeholder="Type to Search..." > 
+  <button class="btn btn-outline-success" type="submit">Search</button> 
+  <datalist id="suggestions">  
+    <option>Doctors</option> 
+    <option>Bmi calculator</option> 
+    <option>Patient reviews</option> 
+    <option>Recovery rate</option> 
+    <option>My profile</option> 
+  </datalist> 
+ 
+  <i class="fa fa-youtube icon1 navicon" style="color: red;"></i> 
+  <i class="fa fa-twitter icon navicon" style="color:blue;"></i> 
+  <i class="fa fa-facebook icon navicon" style="color: blue;"></i> 
+  <i class="fa fa-envelope  icon navicon"></i> 
+  <span class="vr-footer-section-text">medcare134@gmail.com</span> 
+  </div> 
+  </mat-toolbar> 
+  <mat-sidenav-container> 
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8"> 
+   
+        <img class="avatar mat-elevation-z8" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/user-profile-img.png"> 
+        <h4 class="name"> <tbody> 
+          <tr *ngFor="let row of userData"> 
+            <td>{{row.name}}</td> 
+          </tr> 
+        </tbody></h4> 
+   
+        <mat-divider></mat-divider> 
+  <div> 
+        <button mat-button class="menu-button"> 
+            <mat-icon>dashboard</mat-icon> 
+            <span >Dashboard</span> 
+        </button> 
+      </div> 
+        <button mat-button class="menu-button"> 
+          <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" fill="currentColor" class="bi bi-bar-chart fav" viewBox="0 0 16 16"> 
+            <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" /> 
+        </svg> </mat-icon> 
+          <span [routerLink]="['/growthmain']">Growth</span> 
+      </button> 
+   
+        <button mat-button class="menu-button"> 
+            <mat-icon> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="25px" fill="currentColor" class="bi bi-calendar3 fav" viewBox="0 0 16 16"> 
+                <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" /> 
+                <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" /> 
+            </svg> 
+            </mat-icon> 
+            <span [routerLink]="['/appointmentmat']">Appointments</span> 
+        </button> 
+        <button mat-button class="menu-button"> 
+          <mat-icon> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-info-circle-fill fav" viewBox="0 0 16 16"> 
+                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/> 
+                </svg> 
+              </mat-icon> 
+              <span [routerLink]="['/educationmat']">About Us</span> 
+      </button> 
+   
+        <mat-divider></mat-divider>  
+   
+        <button mat-button class="menu-button"> 
+           <mat-icon>logout</mat-icon>  
+            <span [routerLink]="['/loginnew']">Logout</span> 
+        </button> <br/> <br/> <br/> <br/> 
+    <span style="color:black">MedCare Hospitals</span><br> 
+    <span style="color:black">2021 All Rights Reserved</span> 
+    </mat-sidenav> 
+ 
+    <mat-sidenav-content> 
+        <div class="content "> 
+          <div class="container"> 
+  
+ 
+<!-- 
+<button (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" style="border-radius: 2px;padding:5px; background-color: white; color:cornflowerblue"> 
+  {{isOpen ? "myprofile" : "myprofile"}} 
+</button> 
+<ng-template 
+  cdkConnectedOverlay 
+  [cdkConnectedOverlayOrigin]="trigger" 
+  [cdkConnectedOverlayOpen]="isOpen" 
+> 
+  <ul class="example-list"> 
+    <mat-card class="col-12" id="explore"> 
+      <div class="container"> 
+        <div class="row"> 
+          <h1 class="maindash" >My Profile</h1> 
+          
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="60px" fill="currentColor" class="bi bi-person person pb-2 mr-1" viewBox="0 0 16 16"> 
+                                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/> 
+            </svg> 
+          <p class="nameincard">Mahesh Tammineni</p> 
+        <div class="detailsincard"> 
+         <p class="blood">Blood Group :<span style="color: red;">B-</span></p> 
+          <p class="age">Age: <span style="color: red;">23</span></p> 
+          <p class="join">Joined on :<span style="color: red;"> 18/10/2021</span></p> 
+          <p class="">Sugar Level :<span style="color: red;">110mg/dl</span></p> 
+          <p class="">Blood Pressure :<span style="color: red;">130/70mmHg</span></p> 
+          <p class="">Weight :<span style="color: red;">80kg's</span></p> 
+          <p class="">Height :<span style="color: red;">175Cm's</span></p> 
+        </div> 
+        </div> 
+      </div> 
+  </mat-card> 
+  </ul> 
+</ng-template> 
+    <button (click)="isOpen1 = !isOpen1" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" style="border-radius: 2px;padding:5px; background-color: white; color:cornflowerblue"> 
+      {{isOpen1 ? "myprofile" : "myprofile"}} 
+    </button> 
+    <ng-template 
+      cdkConnectedOverlay 
+      [cdkConnectedOverlayOrigin]="trigger" 
+      [cdkConnectedOverlayOpen]="isOpen1" 
+    > 
+      <ul class="example-list"> 
+         
+      </ul> 
+    </ng-template> --> 
+     
+ 
+    <mat-tab-group style="background-color: white;"  mat-align-tabs="start"> 
+      <mat-tab label="Dashboard"> 
+ 
+        <div class="container3"> 
+        <div class="d-flex justify-content-end" style="color: white;">{{getTimeLoaded(1) | date:'medium'}} </div> 
+        <div class="d-flex justify-content-end" style="color: white;"> 
+          Last-Login :<tr *ngFor="let row of userData"> 
+        <td style="color:#cced00">{{row.last_login}}</td> 
+          </tr> </div>  
+         
+     
+    <p class="welcometag">Welcome back, <tbody> 
+      <tr *ngFor="let row of userData"> 
+        <td style="color:#cced00">{{row.name}}</td> 
+      </tr> 
+    </tbody></p> 
+    <h1 class="welcome"> 
+        <marquee>Welcome to the <span style="color:blue;">Med</span> <span style="color:white">Care</span>Website.......</marquee> 
+    </h1> 
+    <div class="container4 col-sm-12"> 
+                  
+        <h1 class="we" style="color: turquoise;">Trusted Care for Them.Peace of Mind for You.</h1> 
+</div> 
+   
+    <h1 class="we1" style="color:#cced00">Advancing Treatment.<br>Advancing Life.</h1> 
+    <h1 class="heading" style="color: white;"> "Don't Wait, Checkup Your Body By Booking The Appointment Quickly"</h1> 
+</div> 
+ 
+        <mat-card class="example-card"> 
+          <div class="bg-container2 "> 
+          <div class="row"> 
+            <div class="col-3"> 
+              <div class="box1" style="border-radius: 10px;"> 
+                  <div class="box-body text-center"> 
+                     <div class="d-flex justify-content-center align-items-center"> 
+                          <div class="p-3"> 
+                              <img src="../../assets/icon-1.png" class="image" alt=""> 
+                          </div> 
+                          <div class="text-end"> 
+                              <h2 class=" text-danger">1540+</h2> 
+                              <p class="text-fade ">Happy Patients</p> 
+                          </div> 
+                      </div> 
+                  </div> 
+              </div> 
+          </div> 
+       
+        <div class="col-3"> 
+          <div class="box2" style="border-radius: 10px;"> 
+              <div class="box-body text-center"> 
+                  <div class="d-flex justify-content-center align-items-center"> 
+                      <div class="p-3"> 
+                          <img src="../../assets/icon-2.png" class="image" alt=""> 
+                      </div> 
+                      <div class="text-end"> 
+                          <h2 class=" text-danger">84+</h2> 
+                          <p class="text-fade ">Nurses</p> 
+                      </div> 
+                  </div> 
+              </div> 
+          </div> 
+      </div> 
+ 
+      <div class="col-3"> 
+          <div class="box3" style="border-radius: 10px;"> 
+              <div class="box-body text-center"> 
+                  <div class="d-flex justify-content-center align-items-center"> 
+                      <div class="p-3"> 
+                          <img src="../../assets/icon-3.png" class="image" alt=""> 
+                      </div> 
+                      <div class="text-end"> 
+                          <h2 class=" text-danger">48+</h2> 
+                          <p class="text-fade ">Doctors</p> 
+                      </div> 
+                  </div> 
+              </div> 
+          </div> 
+      </div> 
+ 
+      <div class="col-3"> 
+        <div class="box4" style="border-radius: 10px;"> 
+            <div class="box-body text-center"> 
+                <div class="d-flex justify-content-center align-items-center"> 
+                    <div class="p-3"> 
+                        <img src="../../assets/icon-4.png" class="image" alt=""> 
+                    </div> 
+                    <div class="text-end"> 
+                        <h2 class="  text-danger">150+</h2> 
+                        <p class="text-fade ">Total Rooms</p> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+      </div> 
+  
+  </div> 
+        </mat-card> 
+ 
+        <mat-card class="example-card"> 
+          <div class="bg-container2 "> 
+          <div class="row"> 
+ 
+            <div class="col-3"> 
+              <div class="box3dynamic" style="border-radius: 10px;"> 
+                  <div class="box-body text-center"> 
+                      <div class="d-flex justify-content-center align-items-center"> 
+                         
+                          <div class="text-end"> 
+                            <div class=" d-flex flex-row"> 
+                              <img src="../../assets/height.png" class="imagedynamic" alt=""> 
+ 
+                               <p class="text-fade pt-2">Height</p> 
+                               <h2 class="text-blue">{{growthData.height}}</h2> 
+                            </div> 
+                              <div class=" d-flex flex-row "> 
+                                <img src="../../assets/weight-scale.png" class="imagedynamic" alt=""> 
+ 
+                                <p class="text-fade pt-2">Weight</p> 
+                                <h2 class="text-blue">{{growthData.weight}}</h2></div> 
+                          </div> 
+                      </div> 
+                  </div> 
+              </div> 
+          </div> 
+ 
+            <div class="col-3"> 
+              <div class="box3dynamic" style="border-radius: 10px;"> 
+                  <div class="box-body text-center"> 
+                     <div class="d-flex justify-content-center align-items-center"> 
+                          <div class="p-3"> 
+                              <img src="../../assets/blood-pressure.png" class="image" alt=""> 
+                          </div> 
+                          <div class="text-end"> 
+                            <tr *ngFor="let row of labData"> 
+                              <h2 class="text-blue">120/{{row.bp}}</h2></tr> 
+                              <p class="text-fade ">Blood Pressure</p> 
+                          </div> 
+                      </div> 
+                  </div> 
+              </div> 
+          </div> 
+       
+        <div class="col-3"> 
+          <div class="box3dynamic" style="border-radius: 10px;"> 
+              <div class="box-body text-center"> 
+                  <div class="d-flex justify-content-center align-items-center"> 
+                      <div class="p-3"> 
+                          <img src="../../assets/heart-beat.png" class="image" alt=""> 
+                      </div> 
+                      <div class="text-end"> 
+                        <tr *ngFor="let row of labData"> 
+                          <h2 class="text-blue">{{row.hrate}}</h2></tr> 
+                          <p class="text-fade ">Heart rate</p> 
+                      </div> 
+                  </div> 
+              </div> 
+          </div> 
+      </div> 
+ 
+      <div class="col-3"> 
+          <div class="box3dynamic" style="border-radius: 10px;"> 
+              <div class="box-body text-center"> 
+                  <div class="d-flex justify-content-center align-items-center"> 
+                      <div class="p-3"> 
+                          <img src="../../assets/glucose-meter.png" class="image" alt=""> 
+                      </div> 
+                      <div class="text-end"> 
+                        <tr *ngFor="let row of labData"> 
+                          <h2 class="text-blue">{{row.bglucose}}mg/dl</h2></tr> 
+                          <p class="text-fade ">Blood Glucose</p> 
+                      </div> 
+                  </div> 
+              </div> 
+          </div> 
+      </div> 
+ 
+       
+      </div> 
+  
+  </div> 
+  <h1 style="padding-top:3px;color: blue;">Height and Weight Data:</h1> 
+  <chart [type]="type" [data]="data" [options]="options"></chart> 
+ 
+        </mat-card> 
+      </mat-tab>  
+      <mat-tab label="My Profile"> 
+        <div class="container-profile " style="text-align: center;"> 
+          <button class="btn btn-primary" style="background-color: aquamarine;;color: black; padding-left: 40px; padding-right: 40px;"  (click)="changeTabTo('Profile')" id="defaultOpen" >Profile Details</button> 
+          <button class="btn btn-secondary" style="background-Color:lightblue; color: black; padding-left: 40px; padding-right: 40px;"  (click)="changeTabTo('Lab')" >Lab Details</button> <br> <br> <br> 
+          </div> 
+        <mat-card > 
+          <div class="container"> 
+            <div class="row"> 
+              <div class="col-8 " *ngIf= "id === 'Profile' "> 
+               <!-- <div class="d-flex flex-row"  > 
+                  <h1 style=" padding-right: 100px;">New User, Create Your Profile</h1> 
+                  <button class="btn btn-primary" style="width: 120px; height: 30px;" (click)="openPopup()">Add Profile</button> 
+                </div> --> 
+              <h1 class="maindash mb-3"  >My Profile</h1> 
+             <div class="d-flex flex-row"> 
+              <img class="avatarp mat-elevation-z8 mb-3 mr-4" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/user-profile-img.png"> 
+                <div> 
+                 <tbody> 
+                  <tr *ngFor="let row of userData"> 
+                    <td class="pt-4" style="color:blueviolet">{{row.name}}</td> 
+                  </tr> 
+                  <tr *ngFor="let row of profileData"> 
+                  <td> 
+                  <button (click)="onEdit(row)" class="editbutton" >Edit Profile</button> 
+                </td> </tr> 
+                </tbody> 
+                </div> 
+              </div> 
+            <div class="detailsincard col-10 p-3"> 
+              <tr *ngFor="let row of userData"> 
+                <span>Age :<td style="color: red;padding-left: 150px;">{{row.age}}</td></span><hr> 
+                <span>Gender :<td style="color: red;padding-left: 132px;">{{row.gender}}</td></span><hr> 
+                <span>Mobile :<td style="color: red;padding-left: 134px;">{{row.mobilenumber}}</td></span><hr> 
+                <span>Email :<td style="color: red;padding-left: 142px;">{{row.email}}</td></span><hr> 
+              </tr> 
+<tbody > 
+  <tr *ngFor="let row of profileData"> 
+    <span>Parents Name :<td  style="color: red;padding-left: 90px;">{{row.pname}}</td></span><hr> 
+    <span>Relationship with patient :<td style="color: red;padding-left: 25px;">{{row.rname}}</td></span><hr> 
+    <span>Address :<td style="color: red;padding-left: 126px;">{{row.address}}</td></span><hr> 
+    <span>Insurance Coverage(Y/N) :<td style="color: red;padding-left: 20px;">{{row.insurance}}</td></span> 
+   </tr> 
+</tbody> 
+ 
+            <!-- <p class="blood">Blood Group :<span style="color: red;">B-</span></p> 
+              <p class="age">Age: <span style="color: red;">23</span></p> 
+              <p class="join">Joined on :<span style="color: red;"> 18/10/2021</span></p> 
+              <p class="">Sugar Level :<span style="color: red;">110mg/dl</span></p> 
+              <p class="">Blood Pressure :<span style="color: red;">130/70mmHg</span></p> 
+              <p class="">Weight :<span style="color: red;">80kg's</span></p> 
+              <p class="">Height :<span style="color: red;">175Cm's</span></p> --> 
+            </div> 
+            </div> 
+          
+         <!-- <div class="col-4 pt-5" style="background-color: #f1f1f1;border-style: solid; border-color: sandybrown; "> 
+            <form   [formGroup]= "formValue"> 
+            <div class="form-group row"> 
+            <label class="col-lg-3 col-form-label form-control-label">First name</label> 
+            <div class="col-lg-9" > 
+            <input class="form-control" type="text" formControlName="fname"> 
+            </div> 
+            </div> 
+            <div class="form-group row"> 
+            <label class="col-lg-3 col-form-label form-control-label">Last name</label> 
+            <div class="col-lg-9"> 
+            <input class="form-control" type="text" id="lname"  formControlName="lname"> 
+            </div> 
+            </div> 
+            <div class="form-group row"> 
+            <label class="col-lg-3 col-form-label form-control-label">Email</label> 
+            <div class="col-lg-9"> 
+            <input class="form-control" type="email"  formControlName="email"> 
+            </div> 
+            </div> 
+            <div class="form-group row"> 
+            <label class="col-lg-3 col-form-label form-control-label">Age</label> 
+            <div class="col-lg-9"> 
+            <input class="form-control" type="number"  formControlName="age"> 
+            </div> 
+            </div> 
+ 
+            <div class="form-group row pt-2"> 
+              <label class="col-lg-3 col-form-label form-control-label">Gender</label> 
+              <div class="col-lg-9"> 
+                <input type="radio" checked="checked" id="male" name="gender" value="male"><label for="male" class="gender-label">Male</label> 
+                <input type="radio" id="female" name="gender" value="female"><label for="female" class="gender-label">Female</label> 
+              </div> 
+              </div> 
+            </form> 
+            <div class="form-group row"> 
+            <label class="col-lg-3 col-form-label form-control-label"></label> 
+            <div class="col-lg-9"> 
+            <button class="btn btn-primary" (click)=" updateProfileDetails()" >Save Changes</button> 
+            </div> 
+            </div> 
+            </div> --> 
+            <div class="col-6 col-md-5" *ngIf= "id === 'Lab' "> 
+              <h1 class="maindash mb-3"  >My Lab</h1> 
+ 
+              <form action="/" method="POST" encType="multipart/form-data"> 
+                <h3>Upload Profile Photo</h3> 
+                <input type="file" name="sampleFile" accept="image/*" /> 
+                <input type="submit" class="btn btn-primary"> 
+              </form> 
+            <button type="button" class="btn btn-primary">View Profile</button> 
+            <!--<form action="/" method="POST" encType="multipart/form-data"> 
+              <h3>Upload Lab Document Reports,Here</h3> 
+              <input type="file" name = "sampleFile" accept="image/*"/> 
+              <input type="submit" class="btn btn-primary"> 
+            </form>--> 
+ 
+            <div class="d-flex flex-row"  > 
+             
+              <button class="btn btn-primary"  style="width: 150px; height: 30px;padding:2px;text-align: center;" (click)="openPopup1()">Add LabDetails</button> 
+            </div> 
+            <tr *ngFor="let row of labData"> 
+              <td> 
+              <button (click)="onEditLab(row)" class="editbuttonlab" >Edit LabDetails</button> 
+            </td> </tr> 
+ 
+           <!-- <div class="container"> 
+              <h1>File Upload</h1> 
+              <form action="/single" method="POST" enctype="multipart/form-data"> 
+                <input name="image" type="file"/> 
+                <button type="submit" >Submit</button> 
+ 
+              </form> 
+            </div> --> 
+            
+ 
+              <div class="detailsincard col-10 p-3"> 
+                <tbody> 
+                  <tr *ngFor="let row of labData"> 
+                    <span>BP :<td style="color: red;padding-left: 200px;">120/{{row.bp}}</td></span><hr> 
+                    <span>Heart Rate :<td  style="color: red;padding-left: 150px;">{{row.hrate}}</td></span><hr> 
+                    <span>Blood Glucose :<td style="color: red;padding-left: 125px;">{{row.bglucose}}mg/dl</td></span><hr> 
+                    <span>Glucose Tolerance Test :<td style="color: red;padding-left: 70px;">{{row.gtest}}mmHg</td></span><hr> 
+                    <span>IGF-1 level :<td style="color: red;padding-left: 150px;">{{row.igf}}ng/mL</td></span><hr> 
+                    <span>TSH :<td style="color: red;padding-left: 190px;">{{row.tsh}}uu/mL</td></span><hr> 
+                   </tr> 
+                </tbody> 
+              </div> 
+            </div> 
+          </div>  
+        </div> 
+ 
+      
+         
+        <!-- <mat-card  class="col-12"> 
+            <h1 class="maindash">Family Members</h1> 
+            <mat-accordion> 
+              <mat-expansion-panel hideToggle> 
+                <mat-expansion-panel-header> 
+                  <mat-panel-title class="maindash"> 
+                    Member 
+                  </mat-panel-title> 
+                  <mat-panel-description class="maindash"> 
+                   Relation 
+                  </mat-panel-description> 
+                </mat-expansion-panel-header> 
+              </mat-expansion-panel> 
+              <mat-expansion-panel (opened)="panelOpenState = true" 
+                                   (closed)="panelOpenState = false"> 
+                <mat-expansion-panel-header> 
+                  <mat-panel-title> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-person " viewBox="0 0 16 16"> 
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/> 
+                    </svg> 
+                   Venkat 
+                  </mat-panel-title> 
+                  <mat-panel-description> 
+                    Father 
+                  </mat-panel-description> 
+                </mat-expansion-panel-header> 
+                <div class="detailsincard"> 
+                  <p class="blood">Blood Group :<span style="color: red;">B+</span></p> 
+                   <p class="age">Age: <span style="color: red;">52</span></p> 
+                   <p class="join">Joined on :<span style="color: red;"> 23/10/2021</span></p> 
+                   <p class="">Sugar Level :<span style="color: red;">108mg/dl</span></p> 
+                   <p class="">Blood Pressure :<span style="color: red;">131/70mmHg</span></p> 
+                   <p class="">Weight :<span style="color: red;">70kg's</span></p> 
+                   <p class="">Enrolled in Insurance :<span style="color: red;">Yes</span></p> 
+                   <p class="">Height :<span style="color: red;">163Cm's</span></p> 
+                 </div> 
+              </mat-expansion-panel> 
+              <mat-expansion-panel (opened)="panelOpenState = true" 
+                                   (closed)="panelOpenState = false"> 
+                <mat-expansion-panel-header> 
+                  <mat-panel-title> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-person " viewBox="0 0 16 16"> 
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/> 
+                    </svg> 
+                  lakshmi 
+                  </mat-panel-title> 
+                  <mat-panel-description> 
+                    Mother 
+                  </mat-panel-description> 
+                </mat-expansion-panel-header> 
+                <div class="detailsincard"> 
+                  <p class="blood">Blood Group :<span style="color: red;">A+</span></p> 
+                   <p class="age">Age: <span style="color: red;">43</span></p> 
+                   <p class="join">Joined on :<span style="color: red;"> 22/10/2021</span></p> 
+                   <p class="">Sugar Level :<span style="color: red;">120mg/dl</span></p> 
+                   <p class="">Blood Pressure :<span style="color: red;">123/70mmHg</span></p> 
+                   <p class="">Weight :<span style="color: red;">75kg's</span></p> 
+                   <p class="">Enrolled in Insurance :<span style="color: red;">Yes</span></p> 
+                   <p class="">Height :<span style="color: red;">165Cm's</span></p> 
+                 </div> 
+              </mat-expansion-panel> 
+           
+              <mat-expansion-panel (opened)="panelOpenState = true" 
+                                   (closed)="panelOpenState = false"> 
+                <mat-expansion-panel-header> 
+                  <mat-panel-title> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-person " viewBox="0 0 16 16"> 
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/> 
+                    </svg> 
+                       Anusha 
+                  </mat-panel-title> 
+                  <mat-panel-description> 
+                    Sister 
+                  </mat-panel-description> 
+                </mat-expansion-panel-header> 
+                <div class="detailsincard"> 
+                  <p class="blood">Blood Group :<span style="color: red;">B-</span></p> 
+                   <p class="age">Age: <span style="color: red;">24</span></p> 
+                   <p class="join">Joined on :<span style="color: red;"> 27/10/2021</span></p> 
+                   <p class="">Sugar Level :<span style="color: red;">104mg/dl</span></p> 
+                   <p class="">Blood Pressure :<span style="color: red;">128/70mmHg</span></p> 
+                   <p class="">Weight :<span style="color: red;">58kg's</span></p> 
+                   <p class="">Enrolled in Insurance :<span style="color: red;">No</span></p> 
+                   <p class="">Height :<span style="color: red;">162Cm's</span></p> 
+                 </div> 
+              </mat-expansion-panel> 
+           
+            </mat-accordion> 
+           
+          </mat-card>--> 
+      </mat-card> 
+ 
+      </mat-tab> 
+      <mat-tab label="Doctors"> 
+        <mat-card> 
+          <h1 class="maindash">Available doctors list</h1> 
+            <!--<table mat-table [dataSource]="dataSource"> 
+                <ng-container matColumnDef="Id"> 
+                  <th mat-header-cell *matHeaderCellDef> Id </th> 
+                  <td mat-cell *matCellDef="let doctor"> {{doctor.id}} </td> 
+              </ng-container> 
+   
+              <ng-container matColumnDef="name"> 
+                <th mat-header-cell *matHeaderCellDef> Name </th> 
+                <td mat-cell *matCellDef="let doctor"> {{doctor.name}} </td> 
+            </ng-container> 
+   
+            <ng-container matColumnDef="email"> 
+                <th mat-header-cell *matHeaderCellDef> Email </th> 
+                <td mat-cell *matCellDef="let doctor"> {{doctor.email}} </td> 
+            </ng-container> 
+   
+            <ng-container matColumnDef="gender"> 
+                <th mat-header-cell *matHeaderCellDef> Gender </th> 
+                <td mat-cell *matCellDef="let doctor"> {{doctor.gender}} </td> 
+            </ng-container> 
+   
+            <ng-container matColumnDef="mobile"> 
+              <th mat-header-cell *matHeaderCellDef> Mobile </th> 
+              <td mat-cell *matCellDef="let doctor"> {{doctor.mobile}} </td> 
+          </ng-container> 
+          <ng-container matColumnDef="qualification"> 
+            <th mat-header-cell *matHeaderCellDef> Qualification </th> 
+            <td mat-cell *matCellDef="let doctor"> {{doctor.qualification}} </td> 
+        </ng-container> 
+        <ng-container matColumnDef="experience"> 
+          <th mat-header-cell *matHeaderCellDef>Experience </th> 
+          <td mat-cell *matCellDef="let doctor"> {{doctor.experience}} </td> 
+      </ng-container> 
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> 
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+  </table>  
+  <mat-paginator [length]="10" 
+  [pageSize]="2" 
+  [pageSizeOptions]="[2, 4, 6, 10]" 
+  aria-label="Select page"> 
+</mat-paginator>      --> 
+ 
+ 
+<div class="col-12"> 
+  <div class="wcu-card p-3 "> 
+    <div class="container"> 
+      <div class="row"> 
+        <div class="col-12 col-md-6 "> 
+          <div class="d-flex flex-row"> 
+            <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+            <div class="ml-3"> 
+              <h1 class="title">Dr.S.R. Krishna Prasad</h1> 
+              <ul class="vr-footer-section-list"> 
+                <li > 
+                    <span class="sub-title">Psychiatrist</span> 
+                </li> 
+                <li> 
+                    <small>M.B.B.S, MRCP(U.K)</small> 
+                </li> 
+                <li> 
+                  <i class="fa fa-map-marker" style="color: red;" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-text">Bangalore</span> 
+                </li> 
+                <li > 
+                  <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-text">14 Years Experience</span> 
+                </li> 
+                <li> 
+                  <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-text">4 Recommendations</span> 
+                </li> 
+            </ul> 
+              
+            </div> 
+          </div> 
+        </div> 
+        <div class="col-12 col-md-5"> 
+          <div> 
+            <button class="custom mb-2">Ask a Doctor</button><br> 
+            <button class="custom mb-2">View Profile</button><br> 
+            <button class="custom ">Call for Appointment</button> 
+            </div> 
+            </div> 
+   
+          </div> 
+        </div> 
+  </div> 
+<br> 
+  <div class="wcu-card p-3 "> 
+    <div class="container"> 
+      <div class="row"> 
+        <div class="col-12 col-md-6 "> 
+          <div class="d-flex flex-row"> 
+            <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+            <div class="ml-3"> 
+              <h1 class="title">Dr.A.V.Arvind Kumar</h1> 
+              <ul class="vr-footer-section-list"> 
+                <li > 
+                    <span class="sub-title">Nephrologist</span> 
+                </li> 
+                <li> 
+                    <small>M.B.B.S, MD</small> 
+                </li> 
+                <li> 
+                  <i class="fa fa-map-marker" style="color: red;" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-text">Hyderabad</span> 
+                </li> 
+                <li > 
+                  <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-text">10 Years Experience</span> 
+                </li> 
+                <li> 
+                  <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-text">6 Recommendations</span> 
+                </li> 
+            </ul> 
+              
+            </div> 
+          </div> 
+        </div> 
+        <div class="col-12 col-md-5"> 
+          <div> 
+            <button class="custom mb-2">Ask a Doctor</button><br> 
+            <button class="custom mb-2">View Profile</button><br> 
+            <button class="custom ">Call for Appointment</button> 
+            </div> 
+            </div> 
+   
+          </div> 
+        </div> 
+  </div> 
+  <br> 
+  <div class="wcu-card p-3 "> 
+    <div class="container"> 
+      <div class="row"> 
+        <div class="col-12 col-md-6 "> 
+          <div class="d-flex flex-row"> 
+            <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+            <div class="ml-3"> 
+              <h1 class="title">Dr.Ramesh Seshadri</h1> 
+              <ul class="vr-footer-section-list"> 
+                <li > 
+                    <span class="sub-title">Cardiologist surgeon</span> 
+                </li> 
+                <li> 
+                    <small>M.B.B.S,MS</small> 
+                </li> 
+                <li> 
+                  <i class="fa fa-map-marker" style="color: red;" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-text">Hyderabad</span> 
+                </li> 
+                <li > 
+                  <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-text">8 Years Experience</span> 
+                </li> 
+                <li> 
+                  <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                    <span class="vr-footer-section-text">3 Recommendations</span> 
+                </li> 
+            </ul> 
+              
+            </div> 
+          </div> 
+        </div> 
+        <div class="col-12 col-md-5"> 
+          <div> 
+            <button class="custom mb-2">Ask a Doctor</button><br> 
+            <button class="custom mb-2">View Profile</button><br> 
+            <button class="custom ">Call for Appointment</button> 
+            </div> 
+            </div> 
+   
+          </div> 
+        </div> 
+  </div> 
+<br> 
+ 
+<div class="wcu-card p-3 "> 
+  <div class="container"> 
+    <div class="row"> 
+      <div class="col-12 col-md-6 "> 
+        <div class="d-flex flex-row"> 
+          <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+          <div class="ml-3"> 
+            <h1 class="title">Dr.Sanjeev Kumar</h1> 
+            <ul class="vr-footer-section-list"> 
+              <li > 
+                  <span class="sub-title">Neurosurgeon</span> 
+              </li> 
+              <li> 
+                  <small>M.S, MRCSed, Mch,FINR</small> 
+              </li> 
+              <li> 
+                <i class="fa fa-map-marker" style="color: red;" aria-hidden="true"></i> 
+                  <span class="vr-footer-section-text">Bangalore</span> 
+              </li> 
+              <li > 
+                <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                  <span class="vr-footer-section-text">15 Years Experience</span> 
+              </li> 
+              <li> 
+                <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                  <span class="vr-footer-section-text">10 Recommendations</span> 
+              </li> 
+          </ul> 
+          </div> 
+        </div> 
+      </div> 
+      <div class="col-12 col-md-5"> 
+        <div> 
+          <button class="custom mb-2">Ask a Doctor</button><br> 
+          <button class="custom mb-2">View Profile</button><br> 
+          <button class="custom ">Call for Appointment</button> 
+          </div> 
+          </div> 
+ 
+        </div> 
+      </div> 
+</div> 
+<br> 
+ 
+<div class="wcu-card p-3 "> 
+  <div class="container"> 
+    <div class="row"> 
+      <div class="col-12 col-md-6 "> 
+        <div class="d-flex flex-row"> 
+          <img src="../../assets/doctorimage.png" class="image7" alt="..."> 
+          <div class="ml-3"> 
+            <h1 class="title">Dr.K.N. Sridhar</h1> 
+            <ul class="vr-footer-section-list"> 
+              <li > 
+                  <span class="sub-title">Urologist</span> 
+              </li> 
+              <li> 
+                  <small>M.B.B.S,FRCS</small> 
+              </li> 
+              <li> 
+                <i class="fa fa-map-marker" style="color: red;" aria-hidden="true"></i> 
+                  <span class="vr-footer-section-text">Hyderabad</span> 
+              </li> 
+              <li > 
+                <i class="fa fa-plus-square" style="color: blue;" aria-hidden="true"></i> 
+                  <span class="vr-footer-section-text">20Years Experience</span> 
+              </li> 
+              <li> 
+                <i class="fa fa-thumbs-up" style="color: green;" aria-hidden="true"></i> 
+                  <span class="vr-footer-section-text">15 Recommendations</span> 
+              </li> 
+          </ul> 
+          </div> 
+        </div> 
+      </div> 
+      <div class="col-12 col-md-5"> 
+        <div> 
+          <button class="custom mb-2">Ask a Doctor</button><br> 
+          <button class="custom mb-2">View Profile</button><br> 
+          <button class="custom ">Call for Appointment</button> 
+          </div> 
+          </div> 
+ 
+        </div> 
+      </div> 
+</div> 
+<br> 
+ 
+</div> 
+  
+</mat-card> 
+ 
+      </mat-tab> 
+      <mat-tab label="Reviews"> 
+        <div class="review-card p-3"> 
+            <mat-card class="col-8"> 
+              <div class="box"> 
+                <div class="box-header with-border"> 
+                  <h1 class="maindash">Patient Review</h1> 
+                </div> 
+                <div class="box-body p-0"> 
+                  <div class="inner-user-div"> 
+                    <div class="media-list bb-1 bb-dashed border-light"> 
+                    <div class="media align-items-center"> 
+                      <a class="avatar-lg status-success" href="#"> 
+                      <img src="../../assets/head1.png" class="avatar12 " alt="..."> 
+                      </a> 
+                      <div class="media-body"> 
+                      <p class="fs-16"> 
+                        <a class="hover-primary" href="#">Swapna</a> 
+                      </p> 
+                        <span class="text-muted">2 day ago</span> 
+                      </div> 
+                      <div class="media-right"> 
+                        <div class="d-flex"> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star-o"></i> 
+                        </div> 
+                      </div> 
+                    </div>					 
+                    <div class="media pt-0"> 
+                      <p class="text-fade">Good hospital. </p> 
+                    </div> 
+                    </div> 
+                    <div class="media-list bb-1 bb-dashed border-light"> 
+                    <div class="media align-items-center"> 
+                      <a class="avatar-lg status-success" href="#"> 
+                      <img src="../../assets/head2.png" class="avatar12 " alt="..."> 
+                      </a> 
+                      <div class="media-body"> 
+                      <p class="fs-16"> 
+                        <a class="hover-primary" href="#">Arvind</a> 
+                      </p> 
+                        <span class="text-muted">5 day ago</span> 
+                      </div> 
+                      <div class="media-right"> 
+                        <div class="d-flex"> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star-half-o"></i> 
+                        </div> 
+                      </div> 
+                    </div>					 
+                    <div class="media pt-0"> 
+                      <p class="text-fade">Every one should visit providing good treatment.</p> 
+                    </div> 
+                    </div> 
+                    <div class="media-list"> 
+                    <div class="media align-items-center"> 
+                      <a class=" avatar-lg status-success" href="#"> 
+                      <img src="../../assets/head3.png" class="avatar12 " alt="..."> 
+                      </a> 
+                      <div class="media-body"> 
+                      <p class="fs-16"> 
+                        <a class="hover-primary" href="#">Divya</a> 
+                      </p> 
+                        <span class="text-muted">7 day ago</span> 
+                      </div> 
+                      <div class="media-right"> 
+                        <div class="d-flex"> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                        </div> 
+                      </div> 
+                    </div>					 
+                    <div class="media pt-0"> 
+                      <p class="text-fade">Visiting this hospital at intial stage , I have a somewhat fever how they will treat and give treatment but later i feel it's best place.</p> 
+                    </div> 
+                    </div> 
+                    <div class="media-list bb-1 bb-dashed border-light"> 
+                    <div class="media align-items-center"> 
+                      <a class="avatar-lg status-success" href="#"> 
+                      <img src="../../assets/head4.png" class="avatar12 " alt="..."> 
+                      </a> 
+                      <div class="media-body"> 
+                      <p class="fs-16"> 
+                        <a class="hover-primary" href="#">Sai kumar</a> 
+                      </p> 
+                        <span class="text-muted">2 day ago</span> 
+                      </div> 
+                      <div class="media-right"> 
+                        <div class="d-flex"> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star-half-o"></i> 
+                        </div> 
+                      </div> 
+                    </div>					 
+                    <div class="media pt-0"> 
+                      <p class="text-fade">Good treatment provided the staff.</p> 
+                    </div> 
+                    </div> 
+                    <div class="media-list bb-1 bb-dashed border-light"> 
+                    <div class="media align-items-center"> 
+                      <a class="status-success" href="#"> 
+                      <img src="../../assets/head5.png" class="avatar12" alt="..."> 
+                      </a> 
+                      <div class="media-body"> 
+                      <p class="fs-16"> 
+                        <a class="hover-primary" href="#">David</a> 
+                      </p> 
+                        <span class="text-muted">5 day ago</span> 
+                      </div> 
+                      <div class="media-right"> 
+                        <div class="d-flex"> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star"></i> 
+                          <i class="text-warning fa fa-star-o"></i> 
+                        </div> 
+                      </div> 
+                    </div>					 
+                    <div class="media pt-0"> 
+                      <p class="text-fade">Awesome Experience getting treatment in this hospital</p> 
+                    </div> 
+                    </div> 
+                  </div> 
+                </div> 
+                <div class="box-footer"> 
+                  <a  class="waves-effect waves-light d-block w-p100 btn btn-primary">See More Reviews</a> 
+                </div> 
+              </div> 
+           </mat-card> 
+        </div> 
+      </mat-tab> 
+ 
+      <mat-tab label="Recovery Rate"> 
+          <mat-card class="col-8"> 
+              <div class="box">		 
+                <div class="box-header"> 
+                  <h1 class="maindash">Recovery rate</h1> 
+                </div> 
+                <div class="box-body"> 
+                  <div > 
+                     <div class="d-flex align-items-center justify-content-between"><h5>65 %</h5><h5>Cancer</h5></div> 
+                     <div class="progress  "> 
+                      <div class="progress1 " role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%"> 
+                      </div> 
+                     </div> 
+                  </div> 
+                  <br/> 
+                  <div class="mb-30"> 
+                     <div class="d-flex align-items-center justify-content-between"><h5>83 %</h5><h5>Injuries</h5></div> 
+                     <div class="progress "> 
+                      <div class="progress2 " role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%"> 
+                      </div> 
+                     </div> 
+                  </div> 
+                    <br/> 
+                  <div> 
+                     <div class="d-flex align-items-center justify-content-between "><h5>80 %</h5><h5>Covid</h5></div> 
+                     <div class="progress"> 
+                      <div class="progress3" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"> 
+                      </div> 
+                     </div> 
+                  </div> 
+                    <br/> 
+                  <div> 
+                     <div class="d-flex align-items-center justify-content-between"><h5>75 %</h5><h5>Heart Attach</h5></div> 
+                     <div class="progress"> 
+                      <div class="progress4 " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"> 
+                      </div> 
+                     </div> 
+                  </div>	 
+                  <br/> 
+                  <div> 
+                    <div class="d-flex align-items-center justify-content-between"><h5>78%</h5><h5>Asthma</h5></div> 
+                    <div class="progress"> 
+                     <div class="progress5" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%"> 
+                     </div> 
+                    </div> 
+                 </div>	 
+                 <br/> 
+                 <div> 
+                  <div class="d-flex align-items-center justify-content-between"><h5>68%</h5><h5>Malaria</h5></div> 
+                  <div class="progress"> 
+                   <div class="progress6" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%"> 
+                   </div> 
+                  </div> 
+               </div>		 
+               <br/> 
+               <div> 
+                <div class="d-flex align-items-center justify-content-between"><h5>86%</h5><h5>Respiratory and digestive</h5></div> 
+                <div class="progress"> 
+                 <div class="progress7" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%"> 
+                 </div> 
+                </div> 
+             </div>						 
+                </div> 
+               
+            </div> 
+ 
+         </mat-card> 
+      </mat-tab> 
+ 
+ 
+    </mat-tab-group> 
+  
+     
+ 
+    <div class="modal" tabindex="-1" id="example" role="dialog"  [ngStyle]="{'display':displayStyle}"> 
+ 
+      <div class="modal-dialog" role="document"> 
+ 
+        <div class="modal-content" style="width:600px"> 
+ 
+          <div class="modal-header" style="background-color: #a5b4fc;"> 
+ 
+            <h4 class="modal-title">Edit Profile</h4> 
+ 
+          </div> 
+ 
+          <div class="modal-body" > 
+ 
+            <div class="col-12 pt-3" style="background-color: #f1f1f1;border-style: solid; border-color: sandybrown; "> 
+              <form   [formGroup]= "formValue"> 
+                
+              <div class="form-group row"> 
+              <label class="col-lg-3 col-form-label form-control-label">Full name</label> 
+              <div class="col-lg-9" > 
+              <tr *ngFor="let row of userData"> 
+                <td style="color: black;padding-left: 10px;">{{row.name}}</td></tr> 
+              </div> 
+              </div> 
+               
+              <div class="form-group row"> 
+                <label class="col-lg-3 col-form-label form-control-label">Age</label> 
+                <div class="col-lg-9"> 
+                  <tr *ngFor="let row of userData"> 
+                    <td style="color: black;padding-left: 10px;">{{row.age}}</td></tr> 
+                </div> 
+                </div> 
+               
+                <div class="form-group row pt-2"> 
+                  <label class="col-lg-3 col-form-label form-control-label">Gender</label> 
+                  <div class="col-lg-9" > 
+                    <tr *ngFor="let row of userData"> 
+                      <td style="color: black;padding-left: 10px;">{{row.gender}}</td></tr> 
+                  </div> 
+                  </div> 
+                   
+                  <div class="form-group row"> 
+                    <label class="col-lg-3 col-form-label form-control-label">Mobile </label> 
+                    <div class="col-lg-9"> 
+                      <tr *ngFor="let row of userData"> 
+                        <td style="color: black;padding-left: 10px;">{{row.mobilenumber}}</td></tr> 
+                    </div> 
+                    </div> 
+                <div class="form-group row"> 
+                <label class="col-lg-3 col-form-label form-control-label">Email</label> 
+                <div class="col-lg-9"> 
+                  <tr *ngFor="let row of userData"> 
+                    <td style="color:black;padding-left: 10px;">{{row.email}}</td></tr> 
+                </div> 
+                </div> 
+                <div class="form-group row"> 
+                  <label class="col-lg-3 col-form-label form-control-label">Parents Name</label> 
+                  <div class="col-lg-9"> 
+                  <input class="form-control" type="text" id="pname"  formControlName="pname"> 
+                  </div> 
+                  </div>  
+              
+                  <div class="form-group row"> 
+                    <label class="col-lg-3 col-form-label form-control-label">Relationship with patient</label> 
+                    <div class="col-lg-9"> 
+                    <input class="form-control" type="text" id="rname"  formControlName="rname"> 
+                    </div> 
+                    </div> 
+                     
+              
+              <div class="form-group row"> 
+                <label class="col-lg-3 col-form-label form-control-label">Address</label> 
+                <div class="col-lg-9"> 
+                <input class="form-control" type="text" id="address"  formControlName="address"> 
+                </div> 
+                </div> 
+                <div class="form-group row"> 
+                  <label class="col-lg-3 col-form-label form-control-label">Insurance Coverage(Y/N):</label> 
+                  <div class="col-lg-9"> 
+                  <input type="radio" checked="checked"  value="Yes" formControlName="insurance"><label for="yes" >Yes</label> 
+                  <input type="radio"  value="No" formControlName="insurance"><label for="no" >No</label> 
+                  </div> 
+                  </div> 
+              </form> 
+              </div> 
+              </div> 
+   
+              <div class="modal-footer"> 
+                  <button type="button" id="cancel" class="btn btn-secondary"  (click)="closePopup()">Close</button> 
+                  <button type="button" *ngIf="showAdd"  class="btn btn-primary" (click)="postProfileDetails()">Add</button> 
+                  <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)=" updateProfileDetails()">Save Changes</button> 
+                </div> 
+   
+            </div> 
+   
+          </div> 
+   
+       
+   
+      </div>  
+ 
+      <div class="modal" tabindex="-1" id="example" role="dialog"  [ngStyle]="{'display':displayStyle1}"> 
+ 
+        <div class="modal-dialog" role="document"> 
+   
+          <div class="modal-content" style="width:500px"> 
+   
+            <div class="modal-header" style="background-color: #a5b4fc;"> 
+   
+              <h4 class="modal-title">Edit Lab</h4> 
+   
+            </div> 
+   
+            <div class="modal-body" > 
+   
+              <div class="col-12 pt-3" style="background-color: #f1f1f1;border-style: solid; border-color: sandybrown; "> 
+                <form   [formGroup]= "formValue1"> 
+                <div class="form-group row"> 
+                <label class="col-lg-3 col-form-label form-control-label">Blood Pressure</label> 
+                <div class="col-lg-9" > 
+                <input class="form-control" type="text" formControlName="bp"> 
+                </div> 
+                </div> 
+                <div class="form-group row"> 
+                <label class="col-lg-3 col-form-label form-control-label">Heart Rate</label> 
+                <div class="col-lg-9"> 
+                <input class="form-control" type="text"  formControlName="hrate"> 
+                </div> 
+                </div> 
+                <div class="form-group row"> 
+                  <label class="col-lg-3 col-form-label form-control-label">Blood Glucose</label> 
+                  <div class="col-lg-9"> 
+                  <input class="form-control" type="text"  formControlName="bglucose"> 
+                  </div> 
+                  </div> 
+                  <div class="form-group row"> 
+                    <label class="col-lg-3 col-form-label form-control-label">Glucose Tolerance Test</label> 
+                    <div class="col-lg-9"> 
+                    <input class="form-control" type="text"  formControlName="gtest"> 
+                    </div> 
+                  </div> 
+                  <div class="form-group row"> 
+                    <label class="col-lg-3 col-form-label form-control-label">IGF-1 Level</label> 
+                    <div class="col-lg-9"> 
+                    <input class="form-control" type="text"  formControlName="igf"> 
+                    </div> 
+                  </div> 
+                  <div class="form-group row"> 
+                    <label class="col-lg-3 col-form-label form-control-label">TSH</label> 
+                    <div class="col-lg-9"> 
+                    <input class="form-control" type="text"  formControlName="tsh"> 
+                    </div> 
+                  </div> 
+                </form> 
+                </div> 
+                </div> 
+     
+                <div class="modal-footer"> 
+                    <button type="button" id="cancel" class="btn btn-secondary"  (click)="closePopup1()">Close</button> 
+                    <button type="button" *ngIf="showAdd"  class="btn btn-primary" (click)="postLabDetails()">Add</button> 
+                    <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)=" updateLabDetails()">Save Changes</button> 
+                  </div> 
+     
+              </div> 
+     
+            </div> 
+     
+         
+     
+        </div>  
+        <!-- <mat-card> 
+          <h1 class="maindash">Available doctors list</h1> 
+              <table mat-table [dataSource]="dataSource"> 
+                <ng-container matColumnDef="Id"> 
+                  <th mat-header-cell *matHeaderCellDef> Id </th> 
+                  <td mat-cell *matCellDef="let doctor"> {{doctor.id}} </td> 
+              </ng-container> 
+   
+              <ng-container matColumnDef="name"> 
+                <th mat-header-cell *matHeaderCellDef> Name </th> 
+                <td mat-cell *matCellDef="let doctor"> {{doctor.name}} </td> 
+            </ng-container> 
+   
+            <ng-container matColumnDef="email"> 
+                <th mat-header-cell *matHeaderCellDef> Email </th> 
+                <td mat-cell *matCellDef="let doctor"> {{doctor.email}} </td> 
+            </ng-container> 
+   
+            <ng-container matColumnDef="gender"> 
+                <th mat-header-cell *matHeaderCellDef> Gender </th> 
+                <td mat-cell *matCellDef="let doctor"> {{doctor.gender}} </td> 
+            </ng-container> 
+   
+            <ng-container matColumnDef="mobile"> 
+              <th mat-header-cell *matHeaderCellDef> Mobile </th> 
+              <td mat-cell *matCellDef="let doctor"> {{doctor.mobile}} </td> 
+          </ng-container> 
+          <ng-container matColumnDef="qualification"> 
+            <th mat-header-cell *matHeaderCellDef> Qualification </th> 
+            <td mat-cell *matCellDef="let doctor"> {{doctor.qualification}} </td> 
+        </ng-container> 
+        <ng-container matColumnDef="experience"> 
+          <th mat-header-cell *matHeaderCellDef>Experience </th> 
+          <td mat-cell *matCellDef="let doctor"> {{doctor.experience}} </td> 
+      </ng-container> 
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> 
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+  </table>  
+  <mat-paginator [length]="10" 
+  [pageSize]="2" 
+  [pageSizeOptions]="[2, 4, 6, 10]" 
+  aria-label="Select page"> 
+</mat-paginator>       
+</mat-card> 
+<br/> 
+ 
+<div class="container"> 
+  <div class="row"> 
+  <mat-card class="col-4" id="explore"> 
+    <div class="container"> 
+      <div class="row"> 
+        <h1 class="maindash" >My Profile</h1> 
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="60px" fill="currentColor" class="bi bi-person person pb-2 mr-1" viewBox="0 0 16 16"> 
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/> 
+          </svg> 
+        <p class="nameincard">Mahesh Tammineni</p> 
+      <div class="detailsincard"> 
+       <p class="blood">Blood Group :<span style="color: red;">B-</span></p> 
+        <p class="age">Age: <span style="color: red;">23</span></p> 
+        <p class="join">Joined on :<span style="color: red;"> 18/10/2021</span></p> 
+        <p class="">Sugar Level :<span style="color: red;">110mg/dl</span></p> 
+        <p class="">Blood Pressure :<span style="color: red;">130/70mmHg</span></p> 
+        <p class="">Weight :<span style="color: red;">80kg's</span></p> 
+        <p class="">Height :<span style="color: red;">175Cm's</span></p> 
+      </div> 
+      </div> 
+    </div> 
+</mat-card> 
+  
+    <div  class="col-8" > 
+    <mat-card> 
+      <h1 class="maindash">BMI calculator</h1> 
+             <div class="radio-buttons"> 
+              <label class="pr-4">Gender:</label> 
+              <input type="radio" checked="checked" id="male" name="gender" value="male"><label for="male" class="gender-label">Male</label> 
+              <input type="radio" id="female" name="gender" value="female"><label for="female" class="gender-label">Female</label> <br> 
+            <label class="pr-5" >Age:</label> <input type="number" class="age-field" size="25"  placeholder="Enter your age"><br><br /> 
+          </div> 
+          <form> 
+            Weight(kg): <input type="text" id="weight" name="weight" placeholder="Enter Weight (kg)" size="20"><br /><br /> 
+            Height(cm): <input type="text" id="height" placeholder="Enter Height (cm)" size="20"><br /><br /> 
+            <input class="decoration-one px-3 py-2" type="button" value="Calculate BMI" onClick="calculateBmi1()"><br /><br /> 
+            Your BMI is :<input type="text" name="bmi" id="bmi" placeholder="Your BMI Will be here" size="20" ><br /><br /> 
+            This Means: <input type="text" name="means" id="means" size="35" ><br /><br /> 
+             
+      </form> 
+    </mat-card> 
+  </div> 
+  </div> 
+  </div> 
+<br/> 
+<mat-card  class="col-12"> 
+  <h1 class="maindash">Family Members</h1> 
+  <mat-accordion> 
+    <mat-expansion-panel hideToggle> 
+      <mat-expansion-panel-header> 
+        <mat-panel-title class="maindash"> 
+          Member 
+        </mat-panel-title> 
+        <mat-panel-description class="maindash"> 
+         Relation 
+        </mat-panel-description> 
+      </mat-expansion-panel-header> 
+    </mat-expansion-panel> 
+    <mat-expansion-panel (opened)="panelOpenState = true" 
+                         (closed)="panelOpenState = false"> 
+      <mat-expansion-panel-header> 
+        <mat-panel-title> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-person " viewBox="0 0 16 16"> 
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/> 
+          </svg> 
+         Venkat 
+        </mat-panel-title> 
+        <mat-panel-description> 
+          Father 
+        </mat-panel-description> 
+      </mat-expansion-panel-header> 
+      <div class="detailsincard"> 
+        <p class="blood">Blood Group :<span style="color: red;">B+</span></p> 
+         <p class="age">Age: <span style="color: red;">52</span></p> 
+         <p class="join">Joined on :<span style="color: red;"> 23/10/2021</span></p> 
+         <p class="">Sugar Level :<span style="color: red;">108mg/dl</span></p> 
+         <p class="">Blood Pressure :<span style="color: red;">131/70mmHg</span></p> 
+         <p class="">Weight :<span style="color: red;">70kg's</span></p> 
+         <p class="">Enrolled in Insurance :<span style="color: red;">Yes</span></p> 
+         <p class="">Height :<span style="color: red;">163Cm's</span></p> 
+       </div> 
+    </mat-expansion-panel> 
+    <mat-expansion-panel (opened)="panelOpenState = true" 
+                         (closed)="panelOpenState = false"> 
+      <mat-expansion-panel-header> 
+        <mat-panel-title> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-person " viewBox="0 0 16 16"> 
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/> 
+          </svg> 
+        lakshmi 
+        </mat-panel-title> 
+        <mat-panel-description> 
+          Mother 
+        </mat-panel-description> 
+      </mat-expansion-panel-header> 
+      <div class="detailsincard"> 
+        <p class="blood">Blood Group :<span style="color: red;">A+</span></p> 
+         <p class="age">Age: <span style="color: red;">43</span></p> 
+         <p class="join">Joined on :<span style="color: red;"> 22/10/2021</span></p> 
+         <p class="">Sugar Level :<span style="color: red;">120mg/dl</span></p> 
+         <p class="">Blood Pressure :<span style="color: red;">123/70mmHg</span></p> 
+         <p class="">Weight :<span style="color: red;">75kg's</span></p> 
+         <p class="">Enrolled in Insurance :<span style="color: red;">Yes</span></p> 
+         <p class="">Height :<span style="color: red;">165Cm's</span></p> 
+       </div> 
+    </mat-expansion-panel> 
+ 
+    <mat-expansion-panel (opened)="panelOpenState = true" 
+                         (closed)="panelOpenState = false"> 
+      <mat-expansion-panel-header> 
+        <mat-panel-title> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-person " viewBox="0 0 16 16"> 
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/> 
+          </svg> 
+             Anusha 
+        </mat-panel-title> 
+        <mat-panel-description> 
+          Sister 
+        </mat-panel-description> 
+      </mat-expansion-panel-header> 
+      <div class="detailsincard"> 
+        <p class="blood">Blood Group :<span style="color: red;">B-</span></p> 
+         <p class="age">Age: <span style="color: red;">24</span></p> 
+         <p class="join">Joined on :<span style="color: red;"> 27/10/2021</span></p> 
+         <p class="">Sugar Level :<span style="color: red;">104mg/dl</span></p> 
+         <p class="">Blood Pressure :<span style="color: red;">128/70mmHg</span></p> 
+         <p class="">Weight :<span style="color: red;">58kg's</span></p> 
+         <p class="">Enrolled in Insurance :<span style="color: red;">No</span></p> 
+         <p class="">Height :<span style="color: red;">162Cm's</span></p> 
+       </div> 
+    </mat-expansion-panel> 
+ 
+  </mat-accordion> 
+ 
+</mat-card> 
+ 
+   <br/> 
+<mat-grid-list cols="2" gutterSize="15px" > 
+  <mat-grid-tile> 
+    <mat-card class="col-12"> 
+      <div class="box"> 
+        <div class="box-header with-border"> 
+          <h1 class="maindash">Patient Review</h1> 
+        </div> 
+        <div class="box-body p-0"> 
+          <div class="inner-user-div"> 
+            <div class="media-list bb-1 bb-dashed border-light"> 
+            <div class="media align-items-center"> 
+              <a class="avatar-lg status-success" href="#"> 
+              <img src="../../assets/head1.jpg" class="avatar12 " alt="..."> 
+              </a> 
+              <div class="media-body"> 
+              <p class="fs-16"> 
+                <a class="hover-primary" href="#">Swapna</a> 
+              </p> 
+                <span class="text-muted">2 day ago</span> 
+              </div> 
+              <div class="media-right"> 
+                <div class="d-flex"> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star-o"></i> 
+                </div> 
+              </div> 
+            </div>					 
+            <div class="media pt-0"> 
+              <p class="text-fade">Good hospital. </p> 
+            </div> 
+            </div> 
+            <div class="media-list bb-1 bb-dashed border-light"> 
+            <div class="media align-items-center"> 
+              <a class="avatar-lg status-success" href="#"> 
+              <img src="../../assets/head2.jpg" class="avatar12 " alt="..."> 
+              </a> 
+              <div class="media-body"> 
+              <p class="fs-16"> 
+                <a class="hover-primary" href="#">Arvind</a> 
+              </p> 
+                <span class="text-muted">5 day ago</span> 
+              </div> 
+              <div class="media-right"> 
+                <div class="d-flex"> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star-half-o"></i> 
+                </div> 
+              </div> 
+            </div>					 
+            <div class="media pt-0"> 
+              <p class="text-fade">Every one should visit providing good treatment.</p> 
+            </div> 
+            </div> 
+            <div class="media-list"> 
+            <div class="media align-items-center"> 
+              <a class=" avatar-lg status-success" href="#"> 
+              <img src="../../assets/head3.jpg" class="avatar12 " alt="..."> 
+              </a> 
+              <div class="media-body"> 
+              <p class="fs-16"> 
+                <a class="hover-primary" href="#">Divya</a> 
+              </p> 
+                <span class="text-muted">7 day ago</span> 
+              </div> 
+              <div class="media-right"> 
+                <div class="d-flex"> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                </div> 
+              </div> 
+            </div>					 
+            <div class="media pt-0"> 
+              <p class="text-fade">Visiting this hospital at intial stage , I have a somewhat fever how they will treat and give treatment but later i feel it's best place.</p> 
+            </div> 
+            </div> 
+            <div class="media-list bb-1 bb-dashed border-light"> 
+            <div class="media align-items-center"> 
+              <a class="avatar-lg status-success" href="#"> 
+              <img src="../../assets/head4.jpg" class="avatar12 " alt="..."> 
+              </a> 
+              <div class="media-body"> 
+              <p class="fs-16"> 
+                <a class="hover-primary" href="#">Sai kumar</a> 
+              </p> 
+                <span class="text-muted">2 day ago</span> 
+              </div> 
+              <div class="media-right"> 
+                <div class="d-flex"> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star-half-o"></i> 
+                </div> 
+              </div> 
+            </div>					 
+            <div class="media pt-0"> 
+              <p class="text-fade">Good treatment provided the staff.</p> 
+            </div> 
+            </div> 
+            <div class="media-list bb-1 bb-dashed border-light"> 
+            <div class="media align-items-center"> 
+              <a class="status-success" href="#"> 
+              <img src="../../assets/head5.jpg" class="avatar12" alt="..."> 
+              </a> 
+              <div class="media-body"> 
+              <p class="fs-16"> 
+                <a class="hover-primary" href="#">David</a> 
+              </p> 
+                <span class="text-muted">5 day ago</span> 
+              </div> 
+              <div class="media-right"> 
+                <div class="d-flex"> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star"></i> 
+                  <i class="text-warning fa fa-star-o"></i> 
+                </div> 
+              </div> 
+            </div>					 
+            <div class="media pt-0"> 
+              <p class="text-fade">Awesome Experience getting treatment in this hospital</p> 
+            </div> 
+            </div> 
+          </div> 
+        </div> 
+        <div class="box-footer"> 
+          <a href="#" class="waves-effect waves-light d-block w-p100 btn btn-primary">See More Reviews</a> 
+        </div> 
+      </div> 
+   </mat-card> 
+  </mat-grid-tile> 
+  <mat-grid-tile> 
+    <mat-card class="col-12"> 
+        <div class="box">		 
+          <div class="box-header"> 
+            <h1 class="maindash">Recovery rate</h1> 
+          </div> 
+          <div class="box-body"> 
+            <div > 
+               <div class="d-flex align-items-center justify-content-between"><h5>65 %</h5><h5>Cancer</h5></div> 
+               <div class="progress  "> 
+                <div class="progress1 " role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%"> 
+                </div> 
+               </div> 
+            </div> 
+            <br/> 
+            <div class="mb-30"> 
+               <div class="d-flex align-items-center justify-content-between"><h5>83 %</h5><h5>Injuries</h5></div> 
+               <div class="progress "> 
+                <div class="progress2 " role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%"> 
+                </div> 
+               </div> 
+            </div> 
+              <br/> 
+            <div> 
+               <div class="d-flex align-items-center justify-content-between "><h5>60 %</h5><h5>Covid</h5></div> 
+               <div class="progress"> 
+                <div class="progress3" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> 
+                </div> 
+               </div> 
+            </div> 
+              <br/> 
+            <div> 
+               <div class="d-flex align-items-center justify-content-between"><h5>75 %</h5><h5>Heart Attach</h5></div> 
+               <div class="progress"> 
+                <div class="progress4 " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"> 
+                </div> 
+               </div> 
+            </div>	 
+            <br/> 
+            <div> 
+              <div class="d-flex align-items-center justify-content-between"><h5>78%</h5><h5>Asthma</h5></div> 
+              <div class="progress"> 
+               <div class="progress5" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%"> 
+               </div> 
+              </div> 
+           </div>	 
+           <br/> 
+           <div> 
+            <div class="d-flex align-items-center justify-content-between"><h5>68%</h5><h5>Malaria</h5></div> 
+            <div class="progress"> 
+             <div class="progress6" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%"> 
+             </div> 
+            </div> 
+         </div>		 
+         <br/> 
+         <div> 
+          <div class="d-flex align-items-center justify-content-between"><h5>86%</h5><h5>Respiratory and digestive</h5></div> 
+          <div class="progress"> 
+           <div class="progress7" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%"> 
+           </div> 
+          </div> 
+       </div>						 
+          </div> 
+         
+      </div> 
+   </mat-card> 
+  </mat-grid-tile> 
+</mat-grid-list>  
+ 
+      <mat-card> 
+              <h1 class="maindash">Chart to show the data details of Inpatient,outpatient and emergency:-</h1> 
+          <div class="container" > 
+            <div class="row"> 
+              <div class="col-6"> 
+                <h1 class="charthead">Pie Chart Indication</h1> 
+                <canvas 
+                    baseChart 
+                    [chartType]="'pie'" 
+                    [datasets]="ChartData" 
+                    [labels]="pieChartLabels" 
+                    [options]="pieChartOptions" 
+                    [legend]="true" 
+                    [colors]="pieChartColor"> 
+                </canvas> 
+                </div> 
+                <div class="col-6"> 
+                  <h1 class="charthead">Bar Chart Indication</h1> 
+                <canvas 
+                    baseChart 
+                    [chartType]="'bar'" 
+                    [datasets]="ChartData" 
+                    [labels]="pieChartLabels" 
+                    [options]="pieChartOptions" 
+                    [legend]="true" 
+                    [colors]="pieChartColor"> 
+                </canvas> 
+                </div> 
+                <div class="col-6"> 
+                  <h1 class="charthead">Line Chart Indication</h1> 
+                <canvas 
+                    baseChart 
+                    [chartType]="'line'" 
+                    [datasets]="ChartData" 
+                    [labels]="pieChartLabels" 
+                    [options]="pieChartOptions" 
+                    [legend]="true" 
+                    [colors]="pieChartColor"> 
+                </canvas> 
+                </div> 
+                <div class="col-6"> 
+                  <h1 class="charthead">Doughnut Chart Indication</h1> 
+                <canvas 
+                    baseChart 
+                    [chartType]="'doughnut'" 
+                    [datasets]="ChartData" 
+                    [labels]="pieChartLabels" 
+                    [options]="pieChartOptions" 
+                    [legend]="true" 
+                    [colors]="pieChartColor"> 
+                </canvas> 
+              </div> 
+              </div> 
+              </div> 
+              </mat-card> --> 
+         </div> 
+        </div> 
+    </mat-sidenav-content> 
+</mat-sidenav-container> 
